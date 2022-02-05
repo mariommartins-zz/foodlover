@@ -17,6 +17,7 @@ import org.koin.dsl.module
 private val networkModule = module {
     factory { FoodLoverApiClientBuilder.buildGson() }
     single { FoodLoverApiClientBuilder.build(context = androidContext(), gson = get()) }
+}
 
 private val databaseModule = module {
     single { FoodLoverDatabaseClientBuilder.build(context = androidContext()) }

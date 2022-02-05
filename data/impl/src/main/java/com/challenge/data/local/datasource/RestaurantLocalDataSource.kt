@@ -1,5 +1,6 @@
 package com.challenge.data.local.datasource
 
+import com.challenge.common.android.map
 import com.challenge.data.local.dao.RestaurantDao
 import com.challenge.data.local.mapper.MapRestaurantFromModelToEntityAlias
 import com.challenge.domain.model.Restaurant

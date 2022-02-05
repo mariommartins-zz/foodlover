@@ -1,5 +1,6 @@
 package com.challenge.domain.repository
 
+import androidx.lifecycle.LiveData
 import com.challenge.domain.model.Restaurant
 
 interface IRestaurantRepository {
