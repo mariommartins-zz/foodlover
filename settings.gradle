@@ -7,4 +7,10 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "FoodLover"
+
 include ':app'
+include ':data:impl'
+include ':data:public'
+include ':domain:impl'
+include ':domain:public'
+include ':presentation'
