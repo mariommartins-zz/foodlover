@@ -13,6 +13,8 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':domain:public')
+    implementation project(path: ':common')
 
     // Koin
     implementation deps.koin.core

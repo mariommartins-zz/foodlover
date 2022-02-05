@@ -39,6 +39,10 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':data:impl')
+    implementation project(path: ':domain:public')
+    implementation project(path: ':domain:impl')
+    implementation project(path: ':presentation')
 
     // Android Support
     implementation deps.support.appcompat
