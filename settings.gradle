@@ -11,6 +11,7 @@ rootProject.name = "FoodLover"
 include ':app'
 include ':data:impl'
 include ':domain:impl'
-include ':domain:public'
 include ':presentation'
 include ':common'
+include ':common:android'
+include ':domain:public'

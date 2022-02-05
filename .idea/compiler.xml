@@ -3,7 +3,9 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="FoodLover.app" target="11" />
+      <module name="FoodLover.common.android" target="11" />
       <module name="FoodLover.data.impl" target="11" />
+      <module name="FoodLover.domain.public" target="11" />
       <module name="FoodLover.presentation" target="11" />
     </bytecodeTargetLevel>
   </component>

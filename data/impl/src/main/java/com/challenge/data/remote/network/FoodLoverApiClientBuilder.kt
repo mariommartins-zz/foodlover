@@ -7,13 +7,11 @@ import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import java.io.IOException
 
-private const val DEFAULT_RESTAURANTS_FILENAME = "default_restaurant_collection.json"
+internal object FoodLoverApiClientBuilder {
 
-internal object FoodLoverClientBuilder {
+    private const val DEFAULT_RESTAURANTS_FILENAME = "default_restaurant_collection.json"
 
-    fun buildGson() = Gson()
-
-    fun buildApiClient(context: Context, gson: Gson): FoodLoverApi = object : FoodLoverApi {
+    fun build(context: Context, gson: Gson): FoodLoverApi = object : FoodLoverApi {
         override suspend fun fetchRestaurants(): List<RestaurantResponse> =
             parseFromJsonToResponse(
                 jsonResponse = getJsonDataFromAsset(context = context),
@@ -21,7 +19,12 @@ internal object FoodLoverClientBuilder {
             )
     }
 
-    private fun parseFromJsonToResponse(jsonResponse: String?, gson: Gson) =
+    fun buildGson(): Gson = Gson()
+
+    private fun parseFromJsonToResponse(
+        jsonResponse: String?,
+        gson: Gson
+    ): List<RestaurantResponse> =
         try {
             gson.fromJson(jsonResponse, RestaurantResponseWrapper::class.java).restaurants
         } catch (e: JsonSyntaxException) {

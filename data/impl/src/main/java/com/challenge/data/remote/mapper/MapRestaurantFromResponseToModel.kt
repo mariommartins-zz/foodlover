@@ -1,13 +1,13 @@
 package com.challenge.data.remote.mapper
 
-import com.challenge.common.Mapper
 import com.challenge.data.remote.response.RestaurantResponse
+import com.challenge.data.util.Mapper
 import com.challenge.domain.model.Restaurant
 
-internal typealias RestaurantResponseToModelMapperAlias = Mapper<RestaurantResponse, Restaurant>
+internal typealias MapRestaurantFromResponseToModelAlias = Mapper<RestaurantResponse, Restaurant>
 
-internal class RestaurantResponseToModelMapper : RestaurantResponseToModelMapperAlias {
-    override fun from(input: RestaurantResponse): Restaurant = with(input) {
+internal class MapRestaurantFromResponseToModel : MapRestaurantFromResponseToModelAlias {
+    override operator fun invoke(input: RestaurantResponse): Restaurant = with(input) {
         Restaurant(
             name = name,
             status = status,

@@ -1,6 +1,5 @@
 package com.challenge.domain.model
 
-
 data class Restaurant(
     val name: String,
     val status: String,
@@ -11,5 +10,6 @@ data class Restaurant(
     val popularity: Int,
     val averageProductPrice: Int,
     val deliveryCosts: Int,
-    val minCost: Int
+    val minCost: Int,
+    var isFavorite: Boolean = false
 )
