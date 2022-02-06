@@ -2,6 +2,7 @@ package com.challenge.foodlover
 
 import android.app.Application
 import com.challenge.data.di.dataModule
+import com.challenge.domain.di.domainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -17,6 +18,6 @@ class FoodLoverApplication : Application() {
     private fun startKoin() = startKoin {
         androidLogger(Level.DEBUG)
         androidContext(this@FoodLoverApplication)
-        modules(dataModule)
+        modules(dataModule + domainModule)
     }
 }

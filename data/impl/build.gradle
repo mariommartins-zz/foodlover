@@ -18,7 +18,6 @@ dependencies {
 
     // Koin
     implementation deps.koin.core
-    testImplementation deps.koin.unit_test
 
     // Gson
     implementation deps.gson

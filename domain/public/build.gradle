@@ -11,4 +11,7 @@ android {
 dependencies {
     // Livedata
     implementation deps.livedata.core_ktx
+
+    // Coroutines
+    implementation deps.kotlin.coroutines_core
 }
