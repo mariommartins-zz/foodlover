@@ -3,42 +3,24 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+apply from: "$rootDir/plugins/android.gradle"
 
 android {
-    compileSdk build_versions.target_sdk
-
     defaultConfig {
         applicationId "com.challenge.foodlover"
-        minSdk build_versions.min_sdk
-        targetSdk build_versions.target_sdk
         versionCode build_versions.version_code
         versionName build_versions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
     dataBinding {
         enabled = true
-    }
-
-    compileOptions {
-        sourceCompatibility build_versions.java
-        targetCompatibility build_versions.java
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
     }
 }
 
 dependencies {
+    // Modules
     implementation project(path: ':data:impl')
     implementation project(path: ':domain:impl')
     implementation project(path: ':domain:public')

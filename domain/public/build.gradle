@@ -3,10 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
-
-android {
-    compileSdk build_versions.target_sdk
-}
+apply from: "$rootDir/plugins/android.gradle"
 
 dependencies {
     // Livedata

@@ -3,9 +3,12 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+apply from: "$rootDir/plugins/android.gradle"
 
 android {
-    compileSdk build_versions.target_sdk
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
     dataBinding {
         enabled = true
@@ -13,7 +16,6 @@ android {
 }
 
 dependencies {
-
     // Android Support
     implementation deps.support.appcompat
     implementation deps.support.material
