@@ -18,6 +18,6 @@ class FoodLoverApplication : Application() {
     private fun startKoin() = startKoin {
         androidLogger(Level.DEBUG)
         androidContext(this@FoodLoverApplication)
-        modules(dataModule + domainModule)
+        modules(dataModule + domainModule + mainModule)
     }
 }
