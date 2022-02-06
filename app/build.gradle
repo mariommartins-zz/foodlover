@@ -57,9 +57,6 @@ dependencies {
     implementation deps.navigation.fragment
     implementation deps.navigation.ui
 
-    // Glide
-    implementation deps.glide
-
     // Gson
     implementation deps.gson
 

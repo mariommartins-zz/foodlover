@@ -16,10 +16,14 @@ android {
 }
 
 dependencies {
+    // Modules
+    implementation project(path: ':domain:public')
+
     // Android Support
     implementation deps.support.appcompat
     implementation deps.support.material
     implementation deps.support.constraintlayout
     implementation deps.support.recyclerview
     implementation deps.support.cardview
+    implementation deps.support.swiperefreshlayout
 }
