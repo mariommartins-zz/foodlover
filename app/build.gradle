@@ -24,7 +24,7 @@ dependencies {
     implementation project(path: ':data:impl')
     implementation project(path: ':domain:impl')
     implementation project(path: ':domain:public')
-    implementation project(path: ':presentation')
+    implementation project(path: ':common:android')
 
     // Android Support
     implementation deps.support.appcompat
@@ -32,6 +32,7 @@ dependencies {
     implementation deps.support.constraintlayout
     implementation deps.support.recyclerview
     implementation deps.support.cardview
+    implementation deps.support.swiperefreshlayout
 
     // KTX
     implementation deps.core_ktx

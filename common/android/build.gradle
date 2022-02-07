@@ -5,7 +5,13 @@ plugins {
 apply from: "$rootDir/plugins/android.gradle"
 
 dependencies {
+    // Android Support
+    implementation deps.support.recyclerview
+
     // Livedata
     implementation deps.livedata.core_ktx
     implementation deps.livedata.ktx
+
+    // Koin
+    implementation deps.koin.core
 }

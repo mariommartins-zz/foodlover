@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">FoodLover</string>
+
+    <!-- Restaurant Status Bar -->
+    <string name="restaurant_open_status_bar_text">open</string>
+    <string name="restaurant_order_ahead_status_bar_text">order ahead</string>
+    <string name="restaurant_closed_status_bar_text">closed</string>
+
+    <!-- Favorite Button -->
+    <string name="content_description_restaurant_favorite_default_text">Favorite button</string>
+    <string name="content_description_restaurant_favorite_checked_text">Checked favorite button</string>
+    <string name="content_description_restaurant_favorite_unchecked_text">Unchecked favorite button</string>
+
+    <!-- Restaurant List -->
+    <string name="restaurant_list_sorting_label_txt">Sort by:</string>
+
+    <!-- Restaurant Sorting Options -->
+    <string name="restaurant_sorting_option_best_match">Best match</string>
+    <string name="restaurant_sorting_option_newest">Newest</string>
+    <string name="restaurant_sorting_option_rating_average">Rating Average</string>
+    <string name="restaurant_sorting_option_distance">Distance</string>
+    <string name="restaurant_sorting_option_popularity">Popularity</string>
+    <string name="restaurant_sorting_option_average_product_price">Average product price</string>
+    <string name="restaurant_sorting_option_delivery_cost">Delivery cost</string>
+    <string name="restaurant_sorting_option_minimum_cost">Minimum cost</string>
+
+    <string-array name="restaurant_sorting_options">
+        <item>@string/restaurant_sorting_option_best_match</item>
+        <item>@string/restaurant_sorting_option_newest</item>
+        <item>@string/restaurant_sorting_option_rating_average</item>
+        <item>@string/restaurant_sorting_option_distance</item>
+        <item>@string/restaurant_sorting_option_popularity</item>
+        <item>@string/restaurant_sorting_option_average_product_price</item>
+        <item>@string/restaurant_sorting_option_delivery_cost</item>
+        <item>@string/restaurant_sorting_option_minimum_cost</item>
+    </string-array>
 </resources>
