@@ -7,13 +7,16 @@ import androidx.recyclerview.widget.ListAdapter
 import com.challenge.domain.model.Restaurant
 import com.challenge.foodlover.databinding.ItemRestaurantBinding
 
-class RestaurantAdapter(private val lifecycleOwner: LifecycleOwner) :
-    ListAdapter<Restaurant, RestaurantItemViewHolder>(RestaurantDiffCallback) {
+class RestaurantAdapter(
+    private val lifecycleOwner: LifecycleOwner,
+    private val onItemClick: (Restaurant) -> Unit
+) : ListAdapter<Restaurant, RestaurantItemViewHolder>(RestaurantDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         RestaurantItemViewHolder(
             ItemRestaurantBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-            lifecycleOwner
+            lifecycleOwner,
+            onItemClick
         )
 
     override fun onBindViewHolder(holder: RestaurantItemViewHolder, position: Int) {

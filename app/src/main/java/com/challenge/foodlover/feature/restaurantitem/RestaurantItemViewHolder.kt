@@ -9,7 +9,8 @@ import org.koin.core.parameter.parametersOf
 
 class RestaurantItemViewHolder(
     private val binding: ItemRestaurantBinding,
-    lifecycleOwner: LifecycleOwner
+    lifecycleOwner: LifecycleOwner,
+    private val onItemClick: (Restaurant) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     private var viewModel: RestaurantItemViewModel? = null
@@ -19,8 +20,9 @@ class RestaurantItemViewHolder(
     }
 
     fun bind(item: Restaurant) {
-        viewModel =
-            get<RestaurantItemViewModel> { parametersOf(item) }.apply { binding.viewModel = this }
+        viewModel = get<RestaurantItemViewModel> {
+            parametersOf(item, onItemClick)
+        }.apply { binding.viewModel = this }
     }
 
     fun recycle() {

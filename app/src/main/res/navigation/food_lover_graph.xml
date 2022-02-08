@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/food_lover_graph"
+    app:startDestination="@id/restaurant_list">
+
+    <!-- Restaurant Details -->
+    <fragment
+        android:id="@+id/restaurant_list"
+        android:name="com.challenge.foodlover.feature.restaurantlist.RestaurantListFragment"
+        tools:layout="@layout/fragment_restaurant_list" />
+
+    <!-- Restaurant Details -->
+    <dialog
+        android:id="@+id/restaurant_details"
+        android:name="com.challenge.foodlover.feature.restaurantdetails.RestaurantDetailsDialogFragment"
+        tools:layout="@layout/dialog_restaurant_details" >
+
+        <argument
+            android:name="restaurant"
+            app:argType="com.challenge.domain.model.Restaurant"
+            app:nullable="false" />
+    </dialog>
+
+    <action
+        android:id="@+id/navigate_to_restaurant_details"
+        app:destination="@id/restaurant_details" />
+</navigation>

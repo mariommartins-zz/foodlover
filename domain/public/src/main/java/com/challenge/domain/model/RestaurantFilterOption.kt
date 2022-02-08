@@ -1,12 +1,17 @@
 package com.challenge.domain.model
 
-enum class RestaurantFilterOption {
-    BEST_MATCH,
-    NEWEST,
-    RATING_AVERAGE,
-    DISTANCE,
-    POPULARITY,
-    AVERAGE_PRODUCT_PRICE,
-    DELIVERY_COSTS,
-    MIN_COST,
+enum class RestaurantFilterOption(private val value: Int) {
+    BEST_MATCH(0),
+    NEWEST(1),
+    RATING_AVERAGE(2),
+    DISTANCE(3),
+    POPULARITY(4),
+    AVERAGE_PRODUCT_PRICE(5),
+    DELIVERY_COSTS(6),
+    MIN_COST(7);
+
+    companion object {
+
+        fun getByValue(filterValue: Int) = values().find { it.value == filterValue }
+    }
 }

@@ -4,10 +4,11 @@ import com.challenge.domain.model.Restaurant
 import org.koin.dsl.module
 
 val restaurantItemModule = module {
-    factory { (restaurant: Restaurant) ->
+    factory { (restaurant: Restaurant, onItemClick: (Restaurant) -> Unit) ->
         RestaurantItemViewModel(
             dispatcherMap = get(),
             restaurant = restaurant,
+            onItemClick = onItemClick,
             repository = get()
         )
     }

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.challenge.common.android.SingleLiveEvent
 import com.challenge.domain.dispatcher.DispatcherMap
 import com.challenge.domain.model.Restaurant
+import com.challenge.domain.model.RestaurantFilterOption
 import com.challenge.domain.usecase.GetSortedRestaurantListUseCase
 import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
 import kotlinx.coroutines.launch
@@ -33,7 +34,7 @@ class TestViewModel(
 
     private fun updateRestaurantList() {
         viewModelScope.launch(dispatcherMap.io) {
-            val result = getSortedRestaurantList()
+            val result = getSortedRestaurantList(RestaurantFilterOption.BEST_MATCH)
             _restaurants.postValue(result)
         }
     }

@@ -1,5 +1,9 @@
 package com.challenge.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Restaurant(
     val name: String,
     val status: RestaurantOpenStatus,
@@ -12,7 +16,7 @@ data class Restaurant(
     val deliveryCosts: Int,
     val minCost: Int,
     var isFavorite: Boolean = false
-)
+) : Parcelable
 
 enum class RestaurantOpenStatus(val priority: Int) {
     OPEN(0),

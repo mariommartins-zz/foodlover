@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.18611111111111112" />
         <entry key="app/src/main/res/drawable/icon_star_selected.xml" value="0.4197916666666667" />
         <entry key="app/src/main/res/drawable/icon_star_unselected.xml" value="0.4197916666666667" />
         <entry key="app/src/main/res/drawable/rounded_corner_background.xml" value="0.4197916666666667" />
@@ -11,6 +12,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.11322188449848024" />
         <entry key="app/src/main/res/layout/dialog_restaurant_details.xml" value="0.19630192502532928" />
+        <entry key="app/src/main/res/layout/fragment_restaurant_list.xml" value="0.11322188449848024" />
+        <entry key="app/src/main/res/layout/include_restaurant_info.xml" value="0.11322188449848024" />
         <entry key="app/src/main/res/layout/item_restaurant.xml" value="0.4036458333333333" />
         <entry key="presentation/src/main/res/drawable/favorites_icon_arrow_down.xml" value="0.25833333333333336" />
         <entry key="presentation/src/main/res/drawable/favorites_icon_arrow_up.xml" value="0.25833333333333336" />

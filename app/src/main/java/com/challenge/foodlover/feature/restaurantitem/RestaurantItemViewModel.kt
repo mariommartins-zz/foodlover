@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 class RestaurantItemViewModel(
     private val dispatcherMap: DispatcherMap,
     private val restaurant: Restaurant,
+    private val onItemClick: (Restaurant) -> Unit,
     private val repository: IRestaurantRepository
 ) : ViewModel() {
 
@@ -34,4 +35,6 @@ class RestaurantItemViewModel(
             else repository.addFavorite(restaurant)
         }
     }
+
+    fun onCardClicked() = onItemClick(restaurant)
 }
