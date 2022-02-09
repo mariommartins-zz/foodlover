@@ -9,7 +9,8 @@ val restaurantDetailsModule = module {
         RestaurantDetailsViewModel(
             dispatcherMap = get(),
             restaurant = restaurant,
-            repository = get()
+            observeRestaurantFavoriteStatus = get(),
+            toggleRestaurantFavoriteStatus = get()
         )
     }
 }

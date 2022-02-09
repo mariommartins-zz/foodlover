@@ -10,7 +10,5 @@ internal class ToggleRestaurantFavoriteStatus(private val repository: IRestauran
             repository.removeFavorite(restaurant)
         else
             repository.addFavorite(restaurant)
-
-        restaurant.isFavorite = repository.isFavorite(restaurant)
     }
 }

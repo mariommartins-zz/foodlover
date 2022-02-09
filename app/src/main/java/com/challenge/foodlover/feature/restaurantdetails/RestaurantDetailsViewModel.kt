@@ -1,18 +1,19 @@
 package com.challenge.foodlover.feature.restaurantdetails
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.challenge.domain.dispatcher.DispatcherMap
 import com.challenge.domain.model.Restaurant
-import com.challenge.domain.repository.IRestaurantRepository
+import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
+import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
 import kotlinx.coroutines.launch
 
 class RestaurantDetailsViewModel(
     private val dispatcherMap: DispatcherMap,
     private val restaurant: Restaurant,
-    private val repository: IRestaurantRepository
+    observeRestaurantFavoriteStatus: ObserveRestaurantFavoriteStatusUseCase,
+    private val toggleRestaurantFavoriteStatus: ToggleRestaurantFavoriteStatusUseCase
 ) : ViewModel() {
 
     val name get() = restaurant.name
@@ -26,19 +27,9 @@ class RestaurantDetailsViewModel(
     val deliveryCosts get() = restaurant.deliveryCosts.toString()
     val minCost get() = restaurant.minCost.toString()
 
-    private val _isFavorite = MediatorLiveData<Boolean>().apply {
-        value = restaurant.isFavorite
-        addSource(repository.observeFavoriteStatusBy(restaurant.name)) {
-            value = it
-            restaurant.isFavorite = it
-        }
-    }
-    val isFavorite: LiveData<Boolean> get() = _isFavorite
+    val isFavorite: LiveData<Boolean> = observeRestaurantFavoriteStatus(restaurant)
 
     fun toggleFavoriteStatus() {
-        viewModelScope.launch(dispatcherMap.io) {
-            if (restaurant.isFavorite) repository.removeFavorite(restaurant)
-            else repository.addFavorite(restaurant)
-        }
+        viewModelScope.launch(dispatcherMap.io) { toggleRestaurantFavoriteStatus(restaurant) }
     }
 }

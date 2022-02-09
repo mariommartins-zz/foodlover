@@ -9,6 +9,9 @@ dependencies {
     // Modules
     implementation project(path: ':domain:public')
 
+    // Livedata
+    implementation deps.livedata.ktx
+
     // Coroutines
     implementation deps.kotlin.coroutines_core
 

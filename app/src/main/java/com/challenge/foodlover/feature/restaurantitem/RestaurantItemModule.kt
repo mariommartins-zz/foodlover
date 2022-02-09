@@ -9,7 +9,8 @@ val restaurantItemModule = module {
             dispatcherMap = get(),
             restaurant = restaurant,
             onItemClick = onItemClick,
-            repository = get()
+            observeRestaurantFavoriteStatus = get(),
+            toggleRestaurantFavoriteStatus = get()
         )
     }
 }

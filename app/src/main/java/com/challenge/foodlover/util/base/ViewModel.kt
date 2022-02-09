@@ -1,10 +1,10 @@
 package com.challenge.foodlover.util.base
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 
-abstract class ViewModel<State : UIState, Action : UIAction>(
-    initialState: State
+abstract class ViewModel<in State : ViewState, in Action : ViewAction>(
+    initialState: State,
+    actino: Action
 ) : ViewModel() {
 
 //    private val viewModelState = State(initialState)
