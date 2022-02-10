@@ -14,6 +14,7 @@ class RestaurantListViewModel(
 ) : ViewModel<IRestaurantListViewState, IRestaurantListViewAction>(), IRestaurantListViewAction {
 
     override val state: IRestaurantListViewState get() = mutableState
+    override val action: IRestaurantListViewAction get() = this
 
     private var currentFilterOption: RestaurantFilterOption = RestaurantFilterOption.BEST_MATCH
 

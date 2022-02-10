@@ -19,6 +19,7 @@ class RestaurantItemViewModel(
 ) : ViewModel<IRestaurantItemViewState, IRestaurantItemViewAction>(), IRestaurantItemViewAction {
 
     override val state: IRestaurantItemViewState get() = mutableState
+    override val action: IRestaurantItemViewAction get() = this
 
     override fun toggleFavoriteStatus() {
         viewModelScope.launch(dispatcherMap.io) { toggleRestaurantFavoriteStatus(restaurant) }
