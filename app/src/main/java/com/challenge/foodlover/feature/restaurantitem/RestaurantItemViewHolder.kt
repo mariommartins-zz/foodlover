@@ -22,7 +22,10 @@ class RestaurantItemViewHolder(
     fun bind(item: Restaurant) {
         viewModel = get<RestaurantItemViewModel> {
             parametersOf(item, onItemClick)
-        }.apply { binding.viewModel = this }
+        }.apply {
+            binding.state = this.state
+            binding.action = this
+        }
     }
 
     fun recycle() {

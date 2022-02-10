@@ -50,7 +50,7 @@ class RestaurantListFragment : Fragment() {
         setupFilterOptions()
     }
 
-    private fun observeEvents() = with(viewModel) {
+    private fun observeEvents() = with(viewModel.state) {
         restaurants.observe(viewLifecycleOwner) {
             restaurantAdapter.submitList(it)
             binding.restaurantListContainerSrl.isRefreshing = false

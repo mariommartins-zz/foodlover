@@ -39,4 +39,6 @@
     <dimen name="margin_start_include_restaurant_info_value">8dp</dimen>
     <dimen name="margin_end_include_restaurant_info_value">8dp</dimen>
     <dimen name="margin_bottom_include_restaurant_info_value">8dp</dimen>
+    <dimen name="card_corner_radius_include_restaurant_info_card">4dp</dimen>
+    <dimen name="card_elevation_include_restaurant_info_card">2dp</dimen>
 </resources>

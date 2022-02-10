@@ -1,22 +1,19 @@
 package com.challenge.foodlover.feature.restaurantlist
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.challenge.domain.dispatcher.DispatcherMap
-import com.challenge.domain.model.Restaurant
 import com.challenge.domain.model.RestaurantFilterOption
 import com.challenge.domain.usecase.GetSortedRestaurantListUseCase
+import com.challenge.foodlover.util.presentationarch.ViewModel
 import kotlinx.coroutines.launch
 
 class RestaurantListViewModel(
     private val getSortedRestaurantList: GetSortedRestaurantListUseCase,
-    private val dispatcherMap: DispatcherMap
-) : ViewModel() {
+    private val dispatcherMap: DispatcherMap,
+    private val mutableState: RestaurantListViewState = RestaurantListViewState()
+) : ViewModel<IRestaurantListViewState, IRestaurantListViewAction>(), IRestaurantListViewAction {
 
-    private val _restaurants = MutableLiveData<List<Restaurant>>()
-    val restaurants: LiveData<List<Restaurant>> = _restaurants
+    override val state: IRestaurantListViewState get() = mutableState
 
     private var currentFilterOption: RestaurantFilterOption = RestaurantFilterOption.BEST_MATCH
 
@@ -24,21 +21,21 @@ class RestaurantListViewModel(
         updateRestaurantList()
     }
 
-    fun onSwipeToRefresh() = updateRestaurantList()
+    override fun onSwipeToRefresh() = updateRestaurantList()
+
+    override fun onFilterOptionSelected(filterValue: Int) {
+        RestaurantFilterOption.getByValue(filterValue)?.let {
+            if (currentFilterOption != it) {
+                currentFilterOption = it
+                updateRestaurantList()
+            }
+        }
+    }
 
     private fun updateRestaurantList() {
         viewModelScope.launch(dispatcherMap.io) {
             val result = getSortedRestaurantList(currentFilterOption)
-            _restaurants.postValue(result)
-        }
-    }
-
-    fun onFilterOptionSelected(filterValue: Int) {
-        RestaurantFilterOption.getByValue(filterValue)?.let {
-            if(currentFilterOption != it) {
-                currentFilterOption = it
-                updateRestaurantList()
-            }
+            mutableState.postRestaurants(result)
         }
     }
 }

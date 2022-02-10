@@ -15,7 +15,7 @@
     <dialog
         android:id="@+id/restaurant_details"
         android:name="com.challenge.foodlover.feature.restaurantdetails.RestaurantDetailsDialogFragment"
-        tools:layout="@layout/dialog_restaurant_details" >
+        tools:layout="@layout/dialog_restaurant_details">
 
         <argument
             android:name="restaurant"

@@ -1,12 +1,11 @@
 package com.challenge.foodlover.feature.restaurantitem
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.challenge.domain.dispatcher.DispatcherMap
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
 import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
+import com.challenge.foodlover.util.presentationarch.ViewModel
 import kotlinx.coroutines.launch
 
 class RestaurantItemViewModel(
@@ -14,18 +13,16 @@ class RestaurantItemViewModel(
     private val restaurant: Restaurant,
     private val onItemClick: (Restaurant) -> Unit,
     observeRestaurantFavoriteStatus: ObserveRestaurantFavoriteStatusUseCase,
-    private val toggleRestaurantFavoriteStatus: ToggleRestaurantFavoriteStatusUseCase
-) : ViewModel() {
+    private val toggleRestaurantFavoriteStatus: ToggleRestaurantFavoriteStatusUseCase,
+    private val mutableState: RestaurantItemViewState =
+        RestaurantItemViewState(restaurant, observeRestaurantFavoriteStatus)
+) : ViewModel<IRestaurantItemViewState, IRestaurantItemViewAction>(), IRestaurantItemViewAction {
 
-    val name get() = restaurant.name
-    val rating get() = restaurant.ratingAverage.toFloat()
-    val status get() = restaurant.status
+    override val state: IRestaurantItemViewState get() = mutableState
 
-    val isFavorite: LiveData<Boolean> = observeRestaurantFavoriteStatus(restaurant)
-
-    fun toggleFavoriteStatus() {
+    override fun toggleFavoriteStatus() {
         viewModelScope.launch(dispatcherMap.io) { toggleRestaurantFavoriteStatus(restaurant) }
     }
 
-    fun onCardClicked() = onItemClick(restaurant)
+    override fun onCardClicked() = onItemClick(restaurant)
 }

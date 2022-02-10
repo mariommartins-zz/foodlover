@@ -18,8 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="2dp">
+        app:cardCornerRadius="@dimen/card_corner_radius_include_restaurant_info_card"
+        app:cardElevation="@dimen/card_elevation_include_restaurant_info_card">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

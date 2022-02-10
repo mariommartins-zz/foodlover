@@ -23,7 +23,8 @@ class RestaurantDetailsDialogFragment : BottomSheetDialogFragment() {
         .inflate(inflater)
         .apply {
             lifecycleOwner = viewLifecycleOwner
-            viewModel = this@RestaurantDetailsDialogFragment.viewModel
+            state = viewModel.state
+            action = viewModel
 
             binding = this
         }.root

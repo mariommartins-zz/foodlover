@@ -13,8 +13,7 @@
         android:theme="@style/Theme.FoodLover">
         <activity
             android:name=".feature.test.TestActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".feature.main.FoodLoverActivity"
             android:exported="true">

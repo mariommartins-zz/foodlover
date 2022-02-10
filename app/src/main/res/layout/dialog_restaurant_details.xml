@@ -6,32 +6,35 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.challenge.foodlover.feature.restaurantdetails.RestaurantDetailsViewModel" />
+            name="state"
+            type="com.challenge.foodlover.feature.restaurantdetails.IRestaurantDetailsViewState" />
+
+        <variable
+            name="action"
+            type="com.challenge.foodlover.feature.restaurantdetails.IRestaurantDetailsViewAction" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/restaurant_details_favorite_ib"
             style="@style/RestaurantFavoriteButton"
-            toggleStatus="@{ viewModel.isFavorite }"
+            toggleStatus="@{ state.isFavorite }"
             toggledDescription="@{ @string/content_description_restaurant_favorite_checked_text }"
             untoggledDescription="@{ @string/content_description_restaurant_favorite_unchecked_text }"
             android:layout_width="@dimen/layout_width_restaurant_favorite_btn"
             android:layout_height="wrap_content"
             android:contentDescription="@string/content_description_restaurant_favorite_default_text"
-            android:onClick="@{ () -> viewModel.toggleFavoriteStatus() }"
+            android:onClick="@{ () -> action.toggleFavoriteStatus() }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/restaurant_details_status_bar_txt"
             style="@style/RestaurantStatusBar"
-            restaurantStatus="@{ viewModel.status }"
+            restaurantStatus="@{ state.status }"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_start_restaurant_details_status_bar"
@@ -48,7 +51,7 @@
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="2"
-            android:text="@{ viewModel.name }"
+            android:text="@{ state.name }"
             android:textSize="@dimen/text_size_restaurant_details_name"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ viewModel.bestMatch }"
+                    app:infoValue="@{ state.bestMatch }"
                     app:label="@{@string/restaurant_sorting_option_best_match}" />
 
                 <include
@@ -87,7 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ viewModel.newest }"
+                    app:infoValue="@{ state.newest }"
                     app:label="@{@string/restaurant_sorting_option_newest}" />
 
                 <include
@@ -95,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ viewModel.ratingAverage }"
+                    app:infoValue="@{ state.ratingAverage }"
                     app:label="@{@string/restaurant_sorting_option_rating_average}" />
 
                 <include
@@ -103,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ viewModel.distance }"
+                    app:infoValue="@{ state.distance }"
                     app:label="@{@string/restaurant_sorting_option_distance}" />
 
                 <include
@@ -111,7 +114,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ viewModel.popularity }"
+                    app:infoValue="@{ state.popularity }"
                     app:label="@{@string/restaurant_sorting_option_popularity}" />
 
                 <include
@@ -119,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ viewModel.averageProductPrice }"
+                    app:infoValue="@{ state.averageProductPrice }"
                     app:label="@{@string/restaurant_sorting_option_average_product_price}" />
 
                 <include
@@ -127,7 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ viewModel.deliveryCosts }"
+                    app:infoValue="@{ state.deliveryCosts }"
                     app:label="@{@string/restaurant_sorting_option_delivery_cost}" />
 
                 <include
@@ -135,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ viewModel.minCost }"
+                    app:infoValue="@{ state.minCost }"
                     app:label="@{@string/restaurant_sorting_option_minimum_cost}" />
             </LinearLayout>
         </ScrollView>
