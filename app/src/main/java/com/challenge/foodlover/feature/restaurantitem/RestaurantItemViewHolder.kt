@@ -2,7 +2,7 @@ package com.challenge.foodlover.feature.restaurantitem
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
-import com.challenge.common.android.get
+import com.challenge.common.android.extensions.get
 import com.challenge.domain.model.Restaurant
 import com.challenge.foodlover.databinding.ItemRestaurantBinding
 import org.koin.core.parameter.parametersOf

@@ -1,15 +1,14 @@
 package com.challenge.foodlover.feature.restaurantitem
 
 import androidx.lifecycle.viewModelScope
-import com.challenge.domain.dispatcher.DispatcherMap
+import com.challenge.common.android.presentationarch.ViewModel
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
 import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
-import com.challenge.foodlover.util.presentationarch.ViewModel
 import kotlinx.coroutines.launch
 
 class RestaurantItemViewModel(
-    private val dispatcherMap: DispatcherMap,
+    private val dispatcherMap: com.challenge.kotlin.DispatcherMap,
     private val restaurant: Restaurant,
     private val onItemClick: (Restaurant) -> Unit,
     observeRestaurantFavoriteStatus: ObserveRestaurantFavoriteStatusUseCase,

@@ -5,13 +5,24 @@ plugins {
 apply from: "$rootDir/plugins/android.gradle"
 
 dependencies {
+    // Modules
+    implementation project(path: ':common:kotlin')
+
     // Android Support
     implementation deps.support.recyclerview
+    implementation deps.support.material
+    implementation deps.support.fragment
 
     // Livedata
     implementation deps.livedata.core_ktx
     implementation deps.livedata.ktx
 
+    // Gson
+    implementation deps.gson
+
     // Koin
     implementation deps.koin.core
+
+    // DataBinding
+    implementation deps.databinding.runtime
 }

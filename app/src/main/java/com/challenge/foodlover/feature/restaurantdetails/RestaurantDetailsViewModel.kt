@@ -1,11 +1,11 @@
 package com.challenge.foodlover.feature.restaurantdetails
 
 import androidx.lifecycle.viewModelScope
-import com.challenge.domain.dispatcher.DispatcherMap
+import com.challenge.common.android.presentationarch.ViewModel
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
 import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
-import com.challenge.foodlover.util.presentationarch.ViewModel
+import com.challenge.kotlin.DispatcherMap
 import kotlinx.coroutines.launch
 
 class RestaurantDetailsViewModel(

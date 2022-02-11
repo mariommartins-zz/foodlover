@@ -1,17 +1,16 @@
 package com.challenge.foodlover.feature.restaurantlist
 
-import androidx.lifecycle.viewModelScope
-import com.challenge.domain.dispatcher.DispatcherMap
+import com.challenge.common.android.connectivity.ErrorHandlingViewModel
 import com.challenge.domain.model.RestaurantFilterOption
 import com.challenge.domain.usecase.GetSortedRestaurantListUseCase
-import com.challenge.foodlover.util.presentationarch.ViewModel
-import kotlinx.coroutines.launch
+import com.challenge.kotlin.DispatcherMap
 
 class RestaurantListViewModel(
     private val getSortedRestaurantList: GetSortedRestaurantListUseCase,
-    private val dispatcherMap: DispatcherMap,
+    override val dispatcherMap: DispatcherMap,
     private val mutableState: RestaurantListViewState = RestaurantListViewState()
-) : ViewModel<IRestaurantListViewState, IRestaurantListViewAction>(), IRestaurantListViewAction {
+) : ErrorHandlingViewModel<IRestaurantListViewState, IRestaurantListViewAction>(),
+    IRestaurantListViewAction {
 
     override val state: IRestaurantListViewState get() = mutableState
     override val action: IRestaurantListViewAction get() = this
@@ -34,7 +33,7 @@ class RestaurantListViewModel(
     }
 
     private fun updateRestaurantList() {
-        viewModelScope.launch(dispatcherMap.io) {
+        performRequestSafely {
             val result = getSortedRestaurantList(currentFilterOption)
             mutableState.postRestaurants(result)
         }

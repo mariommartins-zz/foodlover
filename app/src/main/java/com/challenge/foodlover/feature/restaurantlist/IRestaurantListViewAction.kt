@@ -1,6 +1,6 @@
 package com.challenge.foodlover.feature.restaurantlist
 
-import com.challenge.foodlover.util.presentationarch.ViewAction
+import com.challenge.common.android.presentationarch.ViewAction
 
 interface IRestaurantListViewAction : ViewAction {
     fun onSwipeToRefresh()

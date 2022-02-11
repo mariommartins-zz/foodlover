@@ -2,8 +2,8 @@ package com.challenge.foodlover.feature.restaurantlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.challenge.common.android.presentationarch.ViewState
 import com.challenge.domain.model.Restaurant
-import com.challenge.foodlover.util.presentationarch.ViewState
 
 interface IRestaurantListViewState : ViewState {
     val restaurants: LiveData<List<Restaurant>>

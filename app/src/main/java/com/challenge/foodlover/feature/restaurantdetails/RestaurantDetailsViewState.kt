@@ -1,10 +1,10 @@
 package com.challenge.foodlover.feature.restaurantdetails
 
 import androidx.lifecycle.LiveData
+import com.challenge.common.android.presentationarch.ViewState
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.model.RestaurantOpenStatus
 import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
-import com.challenge.foodlover.util.presentationarch.ViewState
 
 interface IRestaurantDetailsViewState : ViewState {
     val name: String

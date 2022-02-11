@@ -1,0 +1,4 @@
+java {
+    sourceCompatibility = build_versions.java
+    targetCompatibility = build_versions.java
+}

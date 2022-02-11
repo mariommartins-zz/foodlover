@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.challenge.common.android.connectivity.ErrorHandlingView
 import com.challenge.domain.model.Restaurant
 import com.challenge.foodlover.FoodLoverGraphDirections
 import com.challenge.foodlover.R
@@ -23,6 +24,11 @@ class RestaurantListFragment : Fragment() {
 
     private lateinit var restaurantAdapter: RestaurantAdapter
 
+    private val errorHandlingView = object : ErrorHandlingView {
+        override val binding get() = this@RestaurantListFragment.binding
+        override val viewModel get() = this@RestaurantListFragment.viewModel
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +39,7 @@ class RestaurantListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        errorHandlingView.onViewCreated()
         setupView()
         observeEvents()
     }

@@ -26,6 +26,7 @@ dependencies {
     implementation project(path: ':domain:impl')
     implementation project(path: ':domain:public')
     implementation project(path: ':common:android')
+    implementation project(path: ':common:kotlin')
 
     // Android Support
     implementation deps.support.appcompat
@@ -47,7 +48,7 @@ dependencies {
     testImplementation deps.koin.unit_test
 
     // DataBinding
-    kapt deps.databinding
+    kapt deps.databinding.compiler
 
     // Android Navigation
     implementation deps.navigation.fragment
