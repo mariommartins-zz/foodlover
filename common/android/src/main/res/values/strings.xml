@@ -1,5 +1,5 @@
 <resources>
-    <!-- Outdoorsy Warnings -->
+    <!-- FoodLover Warnings -->
     <string name="network_error_text">No internet connection. Try again after checking your internet connection.</string>
     <string name="generic_error_text">It was not possible to complete your request.</string>
 </resources>
