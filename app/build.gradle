@@ -45,6 +45,10 @@ dependencies {
     // Gson
     implementation deps.gson
 
+    // Mockk
+    testImplementation deps.mockk.unit
+    androidTestImplementation deps.mockk.instrumented
+
     // Android Testing Support Library
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso
