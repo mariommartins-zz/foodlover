@@ -29,11 +29,6 @@ support.fragment = "androidx.fragment:fragment-ktx:$versions.fragment"
 support.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 deps.support = support
 
-def livedata = [:]
-livedata.core_ktx = "androidx.lifecycle:lifecycle-livedata-core-ktx:$versions.lifecycle_livedata"
-livedata.ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle_livedata"
-deps.livedata = livedata
-
 def kotlin = [:]
 kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
@@ -72,6 +67,7 @@ databinding.compiler = "androidx.databinding:databinding-compiler:$versions.andr
 databinding.runtime = "androidx.databinding:databinding-runtime:$versions.android_gradle_plugin"
 deps.databinding = databinding
 
+deps.livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle_livedata"
 deps.swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swiperefreshlayout"
 deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
 deps.gson = "com.google.code.gson:gson:$versions.gson"

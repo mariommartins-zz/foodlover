@@ -34,21 +34,9 @@ dependencies {
     // Swipe Refresh Layout
     implementation deps.swiperefreshlayout
 
-    // Kotlin
-    implementation deps.kotlin.test
-    implementation deps.kotlin.coroutines
-    implementation deps.kotlin.coroutines_core
-    testImplementation deps.kotlin.coroutines_test
-    androidTestImplementation deps.kotlin.coroutines_test
-
     // Koin
     implementation deps.koin.core
-    implementation deps.koin.android_scope
     implementation deps.koin.android_viewmodel
-    testImplementation deps.koin.unit_test
-
-    // DataBinding
-    kapt deps.databinding.compiler
 
     // Android Navigation
     implementation deps.navigation.fragment
@@ -58,12 +46,6 @@ dependencies {
     implementation deps.gson
 
     // Android Testing Support Library
-    testImplementation deps.atsl.junit
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso
-
-    // Database
-    implementation deps.room.runtime
-    implementation deps.room.ktx
-    kapt deps.room.compiler
 }

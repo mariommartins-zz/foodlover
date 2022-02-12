@@ -11,7 +11,7 @@ dependencies {
     implementation project(path: ':common:kotlin')
 
     // Livedata
-    implementation deps.livedata.ktx
+    implementation deps.livedata
 
     // Coroutines
     implementation deps.kotlin.coroutines_core

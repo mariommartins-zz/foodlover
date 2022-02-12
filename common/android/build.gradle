@@ -14,8 +14,7 @@ dependencies {
     implementation deps.support.fragment
 
     // Livedata
-    implementation deps.livedata.core_ktx
-    implementation deps.livedata.ktx
+    implementation deps.livedata
 
     // Gson
     implementation deps.gson
