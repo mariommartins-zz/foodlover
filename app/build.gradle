@@ -22,14 +22,18 @@ android {
 
 dependencies {
     // Modules
+    implementation project(path: ':common:android')
+    implementation project(path: ':common:kotlin')
     implementation project(path: ':data:impl')
     implementation project(path: ':domain:impl')
     implementation project(path: ':domain:public')
-    implementation project(path: ':common:android')
-    implementation project(path: ':common:kotlin')
+    testImplementation project(path: ':domain:testcore')
 
     // Android Support
     implementation deps.support.appcompat
+
+    // Kotlin
+    testImplementation deps.kotlin.test
 
     // Swipe Refresh Layout
     implementation deps.swiperefreshlayout

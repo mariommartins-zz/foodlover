@@ -4,9 +4,11 @@
     <bytecodeTargetLevel target="1.8">
       <module name="FoodLover.app" target="11" />
       <module name="FoodLover.common.android" target="11" />
+      <module name="FoodLover.common.testcore" target="11" />
       <module name="FoodLover.data.impl" target="11" />
       <module name="FoodLover.domain.impl" target="11" />
       <module name="FoodLover.domain.public" target="11" />
+      <module name="FoodLover.domain.testcore" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
