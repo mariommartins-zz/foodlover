@@ -1,6 +1,6 @@
 package com.challenge.foodlover.feature.restaurantlist
 
-import com.challenge.common.android.connectivity.ErrorHandlingViewModel
+import com.challenge.common.android.presentationarch.connectivity.ErrorHandlingViewModel
 import com.challenge.domain.model.RestaurantFilterOption
 import com.challenge.domain.usecase.GetSortedRestaurantListUseCase
 import com.challenge.kotlin.DispatcherMap

@@ -1,19 +1,21 @@
 package com.challenge.common.android.extensions
 
-import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.challenge.common.android.R
 import com.google.android.material.snackbar.Snackbar
 
-fun Context.showWarningSnackbar(anchorView: View, @StringRes actionTextRes: Int) =
+fun Fragment.showWarningSnackbar(anchorView: View, @StringRes actionTextRes: Int) {
+    val context = context ?: return
     showSnackbar(
         anchorView,
         resources.getString(actionTextRes),
-        ContextCompat.getDrawable(this, R.drawable.shape_warning_snackbar_background)
+        ContextCompat.getDrawable(context, R.drawable.shape_warning_snackbar_background)
     )
+}
 
 private fun showSnackbar(anchorView: View, actionText: String, background: Drawable?) =
     Snackbar

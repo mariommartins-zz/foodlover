@@ -16,7 +16,7 @@
     <dimen name="margin_top_item_restaurant_ratingbar">8dp</dimen>
     <dimen name="margin_top_item_restaurant_status_bar">8dp</dimen>
     <dimen name="margin_item_restaurant_name_txt">8dp</dimen>
-    <dimen name="padding_item_restaurant_favorite_btn">8dp</dimen>
+    <dimen name="padding_item_restaurant_favorite_btn">16dp</dimen>
 
     <!-- Favorite Button -->
     <dimen name="layout_width_restaurant_favorite_btn">60dp</dimen>

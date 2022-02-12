@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.challenge.common.android.connectivity.ErrorHandlingView
+import com.challenge.common.android.presentationarch.connectivity.ErrorHandlingFragment
 import com.challenge.domain.model.Restaurant
 import com.challenge.foodlover.FoodLoverGraphDirections
 import com.challenge.foodlover.R
@@ -17,17 +16,12 @@ import com.challenge.foodlover.databinding.FragmentRestaurantListBinding
 import com.challenge.foodlover.feature.restaurantitem.RestaurantAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RestaurantListFragment : Fragment() {
+class RestaurantListFragment : ErrorHandlingFragment() {
 
-    private lateinit var binding: FragmentRestaurantListBinding
-    private val viewModel: RestaurantListViewModel by viewModel()
+    override lateinit var binding: FragmentRestaurantListBinding
+    override val viewModel: RestaurantListViewModel by viewModel()
 
     private lateinit var restaurantAdapter: RestaurantAdapter
-
-    private val errorHandlingView = object : ErrorHandlingView {
-        override val binding get() = this@RestaurantListFragment.binding
-        override val viewModel get() = this@RestaurantListFragment.viewModel
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,9 +31,7 @@ class RestaurantListFragment : Fragment() {
         binding = this
     }.root
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        errorHandlingView.onViewCreated()
+    override fun doOnViewCreated(view: View, savedInstanceState: Bundle?) {
         setupView()
         observeEvents()
     }

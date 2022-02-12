@@ -1,9 +1,13 @@
 package com.challenge.data.remote.network
 
 import android.content.Context
+import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException.IOFoodLoverException
+import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException.JsonParsingFoodLoverException
 import com.challenge.data.remote.response.RestaurantResponse
 import com.challenge.data.remote.response.RestaurantResponseWrapper
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
+import java.io.IOException
 
 internal object FoodLoverApiClientBuilder {
 
@@ -20,11 +24,21 @@ internal object FoodLoverApiClientBuilder {
     fun buildGson(): Gson = Gson()
 
     private suspend fun getJsonDataFromAsset(context: Context): String =
-        context.assets.open(DEFAULT_RESTAURANTS_FILENAME).bufferedReader().use { it.readText() }
+        try {
+            context.assets.open(DEFAULT_RESTAURANTS_FILENAME).bufferedReader().use { it.readText() }
+        } catch (e: IOException) {
+            e.printStackTrace()
+            throw IOFoodLoverException()
+        }
 
     private fun parseFromJsonToResponse(
         jsonResponse: String,
         gson: Gson
     ): List<RestaurantResponse> =
-        gson.fromJson(jsonResponse, RestaurantResponseWrapper::class.java).restaurants
+        try {
+            gson.fromJson(jsonResponse, RestaurantResponseWrapper::class.java).restaurants
+        } catch (e: JsonSyntaxException) {
+            e.printStackTrace()
+            throw JsonParsingFoodLoverException()
+        }
 }
