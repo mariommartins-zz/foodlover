@@ -3,3 +3,11 @@ plugins {
     id 'kotlin-android'
 }
 apply from: "$rootDir/plugins/android.gradle"
+
+dependencies {
+    // Modules
+    implementation project(path: ':common:kotlin')
+
+    // Coroutines
+    implementation deps.kotlin.coroutines_core
+}

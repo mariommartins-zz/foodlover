@@ -2,6 +2,7 @@ package com.challenge.testcore
 
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.model.RestaurantOpenStatus
+import com.challenge.testcore.util.RandomGenerator
 
 object RestaurantFactory {
 
@@ -30,4 +31,6 @@ object RestaurantFactory {
         minCost = minCost,
         isFavorite = isFavorite
     )
+
+    fun makeList(size: Int = 1) = List(size) { make() }
 }

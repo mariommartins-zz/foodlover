@@ -22,15 +22,17 @@ android {
 
 dependencies {
     // Modules
-    implementation project(path: ':common:android')
-    implementation project(path: ':common:kotlin')
     implementation project(path: ':data:impl')
     implementation project(path: ':domain:impl')
     implementation project(path: ':domain:public')
+    implementation project(path: ':common:android')
+    implementation project(path: ':common:kotlin')
     testImplementation project(path: ':domain:testcore')
+    testImplementation project(path: ':common:testcore')
 
     // Android Support
     implementation deps.support.appcompat
+    testImplementation deps.support.test_core
 
     // Kotlin
     testImplementation deps.kotlin.test

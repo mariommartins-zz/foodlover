@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class RestaurantItemViewModel(
     private val dispatcherMap: com.challenge.kotlin.DispatcherMap,
     private val restaurant: Restaurant,
-    private val onItemClick: (Restaurant) -> Unit,
+    private val onItemClicked: (Restaurant) -> Unit,
     observeRestaurantFavoriteStatus: ObserveRestaurantFavoriteStatusUseCase,
     private val toggleRestaurantFavoriteStatus: ToggleRestaurantFavoriteStatusUseCase,
     private val mutableState: RestaurantItemViewState =
@@ -24,5 +24,5 @@ class RestaurantItemViewModel(
         viewModelScope.launch(dispatcherMap.io) { toggleRestaurantFavoriteStatus(restaurant) }
     }
 
-    override fun onCardClicked() = onItemClick(restaurant)
+    override fun onCardClicked() = onItemClicked(restaurant)
 }

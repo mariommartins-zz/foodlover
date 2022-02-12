@@ -1,4 +1,4 @@
-package com.challenge.testcore
+package com.challenge.testcore.util
 
 import kotlin.random.Random
 

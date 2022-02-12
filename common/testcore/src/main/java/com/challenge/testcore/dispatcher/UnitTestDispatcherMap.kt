@@ -1,10 +1,10 @@
-package com.challenge.foodlover.util
+package com.challenge.testcore.dispatcher
 
 import com.challenge.kotlin.DispatcherMap
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
-internal class UnitTestDispatcherMap : DispatcherMap {
+class UnitTestDispatcherMap : DispatcherMap {
 
     override val io: CoroutineDispatcher = Dispatchers.Unconfined
     override val ui: CoroutineDispatcher = Dispatchers.Unconfined

@@ -2,6 +2,7 @@ def versions = [:]
 versions.android_gradle_plugin = '7.0.4'
 versions.kotlin = '1.6.10'
 versions.appcompat = '1.4.1'
+versions.test_core = '1.1.1'
 versions.material = '1.5.0'
 versions.fragment = '1.4.1'
 versions.recyclerview = '1.2.1'
@@ -25,6 +26,7 @@ deps.kotlin_gradle_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions
 
 def support = [:]
 support.appcompat = "androidx.appcompat:appcompat:$versions.appcompat"
+support.test_core = "android.arch.core:core-testing:$versions.test_core"
 support.material = "com.google.android.material:material:$versions.material"
 support.fragment = "androidx.fragment:fragment-ktx:$versions.fragment"
 support.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"

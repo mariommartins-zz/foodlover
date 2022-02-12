@@ -1,38 +1,127 @@
 package com.challenge.foodlover.feature.restaurantdetails
 
-import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
-import com.challenge.foodlover.util.UnitTestDispatcherMap
+import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
 import com.challenge.testcore.RestaurantFactory
-import io.mockk.coVerify
 import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Before
 import org.junit.Test
+import kotlin.test.assertEquals
 
-class RestaurantDetailsViewStateTest {
+internal class RestaurantDetailsViewStateTest {
 
-    private val dispatcherMap = UnitTestDispatcherMap()
-    private val toggleRestaurantFavoriteStatus =
-        mockk<ToggleRestaurantFavoriteStatusUseCase>(relaxed = true)
+    private val observeRestaurantFavoriteStatus =
+        mockk<ObserveRestaurantFavoriteStatusUseCase>(relaxed = true)
 
-    private lateinit var viewState: RestaurantDetailsViewState
+    private val mockedRestaurant = RestaurantFactory.make()
+
+    private lateinit var viewState: IRestaurantDetailsViewState
 
     @Before
     fun setup() {
-        viewModel = RestaurantDetailsViewModel(
-            dispatcherMap = dispatcherMap,
-            restaurant = mockk(relaxed = true),
-            observeRestaurantFavoriteStatus = mockk(relaxed = true),
-            toggleRestaurantFavoriteStatus = toggleRestaurantFavoriteStatus,
-            mutableState = mockk(relaxed = true)
+        //Given
+        viewState = RestaurantDetailsViewState(
+            restaurant = mockedRestaurant,
+            observeRestaurantFavoriteStatus = observeRestaurantFavoriteStatus
         )
     }
 
     @Test
-    fun `when toggleFavoriteStatus is called Should call toggleRestaurantFavoriteStatusUseCase`(){
+    fun `when name is called Should return restaurant name`() {
         //When
-        viewModel.toggleFavoriteStatus()
+        val result = viewState.name
 
         //Then
-        coVerify { toggleRestaurantFavoriteStatus.invoke(any()) }
+        assertEquals(mockedRestaurant.name, result)
+    }
+
+    @Test
+    fun `when status is called Should return restaurant status`() {
+        //When
+        val result = viewState.status
+
+        //Then
+        assertEquals(mockedRestaurant.status, result)
+    }
+
+    @Test
+    fun `when bestMatch is called Should return restaurant bestMatch as String`() {
+        //When
+        val result = viewState.bestMatch
+
+        //Then
+        assertEquals(mockedRestaurant.bestMatch.toString(), result)
+    }
+
+    @Test
+    fun `when newest is called Should return restaurant newest as String`() {
+        //When
+        val result = viewState.newest
+
+        //Then
+        assertEquals(mockedRestaurant.newest.toString(), result)
+    }
+
+    @Test
+    fun `when ratingAverage is called Should return restaurant ratingAverage as String`() {
+        //When
+        val result = viewState.ratingAverage
+
+        //Then
+        assertEquals(mockedRestaurant.ratingAverage.toString(), result)
+    }
+
+    @Test
+    fun `when distance is called Should return restaurant distance as String`() {
+        //When
+        val result = viewState.distance
+
+        //Then
+        assertEquals(mockedRestaurant.distance.toString(), result)
+    }
+
+    @Test
+    fun `when popularity is called Should return restaurant popularity as String`() {
+        //When
+        val result = viewState.popularity
+
+        //Then
+        assertEquals(mockedRestaurant.popularity.toString(), result)
+    }
+
+    @Test
+    fun `when averageProductPrice is called Should return restaurant averageProductPrice as String`() {
+        //When
+        val result = viewState.averageProductPrice
+
+        //Then
+        assertEquals(mockedRestaurant.averageProductPrice.toString(), result)
+    }
+
+    @Test
+    fun `when deliveryCosts is called Should return restaurant deliveryCosts as String`() {
+        //When
+        val result = viewState.deliveryCosts
+
+        //Then
+        assertEquals(mockedRestaurant.deliveryCosts.toString(), result)
+    }
+
+    @Test
+    fun `when minCost is called Should return restaurant minCost as String`() {
+        //When
+        val result = viewState.bestMatch
+
+        //Then
+        assertEquals(mockedRestaurant.bestMatch.toString(), result)
+    }
+
+    @Test
+    fun `when isFavorite is called Should call observeRestaurantFavoriteStatus`() {
+        //When
+        viewState.isFavorite
+
+        //Then
+        verify { observeRestaurantFavoriteStatus(mockedRestaurant) }
     }
 }
