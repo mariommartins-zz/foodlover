@@ -9,7 +9,7 @@ import com.challenge.common.android.extensions.showWarningSnackbar
 import com.challenge.common.android.presentationarch.ViewAction
 import com.challenge.common.android.presentationarch.ViewState
 import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause.ERROR
-import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause.NO_INTERNET
+import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause.PARSING
 
 abstract class ErrorHandlingFragment : Fragment() {
 
@@ -27,7 +27,7 @@ abstract class ErrorHandlingFragment : Fragment() {
     private fun observeEvents() = with(viewModel) {
         errorEvent.observe(viewLifecycleOwner) {
             when (it) {
-                NO_INTERNET -> showWarningSnackbar(binding.root, R.string.network_error_text)
+                PARSING -> showWarningSnackbar(binding.root, R.string.parsing_error_text)
                 ERROR -> showWarningSnackbar(binding.root, R.string.generic_error_text)
                 null -> showWarningSnackbar(binding.root, R.string.generic_error_text)
             }

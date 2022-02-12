@@ -7,11 +7,16 @@ apply from: "$rootDir/plugins/android.gradle"
 dependencies {
     // Modules
     implementation project(path: ':common:kotlin')
+    testImplementation project(path: ':common:testcore')
 
     // Android Support
     implementation deps.support.recyclerview
     implementation deps.support.material
     implementation deps.support.fragment
+    testImplementation deps.support.test_core
+
+    // Kotlin
+    testImplementation deps.kotlin.test
 
     // Livedata
     implementation deps.livedata
@@ -24,4 +29,8 @@ dependencies {
 
     // DataBinding
     implementation deps.databinding.runtime
+
+    // Mockk
+    testImplementation deps.mockk.unit
+    androidTestImplementation deps.mockk.instrumented
 }

@@ -7,7 +7,7 @@ import com.challenge.common.android.presentationarch.ViewModel
 import com.challenge.common.android.presentationarch.ViewState
 import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause
 import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause.ERROR
-import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause.NO_INTERNET
+import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause.PARSING
 import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException.IOFoodLoverException
 import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException.JsonParsingFoodLoverException
 import com.challenge.common.android.util.SingleLiveEvent
@@ -31,7 +31,7 @@ abstract class ErrorHandlingViewModel<out State : ViewState, out Action : ViewAc
             try {
                 withContext(dispatcherMap.io) { request.invoke() }
             } catch (exception: JsonParsingFoodLoverException) {
-                onLoadException(NO_INTERNET, onError)
+                onLoadException(PARSING, onError)
             } catch (exception: IOFoodLoverException) {
                 onLoadException(ERROR, onError)
             }
