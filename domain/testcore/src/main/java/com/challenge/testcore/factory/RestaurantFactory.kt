@@ -1,4 +1,4 @@
-package com.challenge.testcore
+package com.challenge.testcore.factory
 
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.model.RestaurantOpenStatus

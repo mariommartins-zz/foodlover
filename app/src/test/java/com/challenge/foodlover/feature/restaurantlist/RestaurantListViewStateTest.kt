@@ -3,7 +3,7 @@ package com.challenge.foodlover.feature.restaurantlist
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.challenge.domain.model.Restaurant
-import com.challenge.testcore.RestaurantFactory
+import com.challenge.testcore.factory.RestaurantFactory
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Before

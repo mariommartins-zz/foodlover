@@ -6,6 +6,6 @@ apply from: "$rootDir/plugins/android.gradle"
 
 dependencies {
     // Modules
-    implementation project(path: ':common:testcore')
     implementation project(path: ':domain:public')
+    testImplementation project(path: ':common:testcore')
 }

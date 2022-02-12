@@ -7,8 +7,16 @@ apply from: "$rootDir/plugins/android.gradle"
 
 dependencies {
     // Modules
-    implementation project(path: ':common:android')
     implementation project(path: ':domain:public')
+    implementation project(path: ':common:android')
+    testImplementation project(path: ':domain:testcore')
+    testImplementation project(path: ':common:testcore')
+
+    // Android Support
+    testImplementation deps.support.test_core
+
+    // Kotlin
+    testImplementation deps.kotlin.test
 
     // Livedata
     implementation deps.livedata
@@ -23,4 +31,7 @@ dependencies {
     implementation deps.room.runtime
     implementation deps.room.ktx
     kapt deps.room.compiler
+
+    // Mockk
+    testImplementation deps.mockk.unit
 }

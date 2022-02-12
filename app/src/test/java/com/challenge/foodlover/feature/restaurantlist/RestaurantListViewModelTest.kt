@@ -3,10 +3,11 @@ package com.challenge.foodlover.feature.restaurantlist
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.challenge.domain.model.RestaurantFilterOption
 import com.challenge.domain.usecase.GetSortedRestaurantListUseCase
-import com.challenge.testcore.RestaurantFactory
 import com.challenge.testcore.dispatcher.UnitTestDispatcherMap
+import com.challenge.testcore.factory.RestaurantFactory
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.coVerifyOrder
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Before
@@ -44,8 +45,10 @@ internal class RestaurantListViewModelTest {
     @Test
     fun `when create Should call getSortedRestaurantList && post returned restaurants`() {
         //Then
-        coVerify { getSortedRestaurantList(RestaurantFilterOption.BEST_MATCH) }
-        verify { mutableState.postRestaurants(mockedRestaurants) }
+        coVerifyOrder {
+            getSortedRestaurantList(RestaurantFilterOption.BEST_MATCH)
+            mutableState.postRestaurants(mockedRestaurants)
+        }
     }
 
     @Test
@@ -80,6 +83,8 @@ internal class RestaurantListViewModelTest {
         viewModel.onFilterOptionSelected(filterValue)
 
         //Then
-        coVerify(exactly = 1) { getSortedRestaurantList(RestaurantFilterOption.getByValue(filterValue)!!) }
+        coVerify(exactly = 1) {
+            getSortedRestaurantList(RestaurantFilterOption.getByValue(filterValue)!!)
+        }
     }
 }

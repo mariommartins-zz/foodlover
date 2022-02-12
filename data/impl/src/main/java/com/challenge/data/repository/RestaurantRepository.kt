@@ -13,7 +13,6 @@ internal class RestaurantRepository(
     override suspend fun getAll() =
         remoteDataSource
             .fetchRestaurants()
-            .orEmpty()
             .onEach { it.isFavorite = isFavorite(it) }
 
     override suspend fun addFavorite(restaurant: Restaurant) = localDataSource.add(restaurant)

@@ -12,6 +12,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.verify
+import io.mockk.verifyOrder
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -61,8 +62,10 @@ internal class ErrorHandlingViewModelTest {
         viewModel.exposedPerformRequestSafely(onError, request)
 
         //Then
-        verify { onError(ErrorCause.PARSING) }
-        verify { errorEventObserver.onChanged(ErrorCause.PARSING) }
+        verifyOrder {
+            errorEventObserver.onChanged(ErrorCause.PARSING)
+            onError(ErrorCause.PARSING)
+        }
     }
 
     @Test
@@ -74,7 +77,9 @@ internal class ErrorHandlingViewModelTest {
         viewModel.exposedPerformRequestSafely(onError, request)
 
         //Then
-        verify { onError(ErrorCause.ERROR) }
-        verify { errorEventObserver.onChanged(ErrorCause.ERROR) }
+        verifyOrder {
+            errorEventObserver.onChanged(ErrorCause.ERROR)
+            onError(ErrorCause.ERROR)
+        }
     }
 }

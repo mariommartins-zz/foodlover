@@ -1,7 +1,7 @@
 package com.challenge.foodlover.feature.restaurantitem
 
 import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
-import com.challenge.testcore.RestaurantFactory
+import com.challenge.testcore.factory.RestaurantFactory
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Before

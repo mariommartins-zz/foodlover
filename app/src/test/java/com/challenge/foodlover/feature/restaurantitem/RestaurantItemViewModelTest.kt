@@ -2,8 +2,8 @@ package com.challenge.foodlover.feature.restaurantitem
 
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
-import com.challenge.testcore.RestaurantFactory
 import com.challenge.testcore.dispatcher.UnitTestDispatcherMap
+import com.challenge.testcore.factory.RestaurantFactory
 import io.mockk.coVerify
 import io.mockk.mockk
 import org.junit.Before

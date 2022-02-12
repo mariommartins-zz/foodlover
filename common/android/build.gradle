@@ -32,5 +32,4 @@ dependencies {
 
     // Mockk
     testImplementation deps.mockk.unit
-    androidTestImplementation deps.mockk.instrumented
 }
