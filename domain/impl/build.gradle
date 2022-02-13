@@ -9,6 +9,14 @@ dependencies {
     // Modules
     implementation project(path: ':domain:public')
     implementation project(path: ':common:kotlin')
+    testImplementation project(path: ':domain:testcore')
+    testImplementation project(path: ':common:testcore')
+
+    // Android Support
+    testImplementation deps.support.test_core
+
+    // Kotlin
+    testImplementation deps.kotlin.test
 
     // Livedata
     implementation deps.livedata
@@ -18,4 +26,7 @@ dependencies {
 
     // Koin
     implementation deps.koin.core
+
+    // Mockk
+    testImplementation deps.mockk.unit
 }
