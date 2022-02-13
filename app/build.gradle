@@ -29,10 +29,12 @@ dependencies {
     implementation project(path: ':common:kotlin')
     testImplementation project(path: ':domain:testcore')
     testImplementation project(path: ':common:testcore')
+    androidTestImplementation project(path: ':domain:testcore')
 
     // Android Support
     implementation deps.support.appcompat
     testImplementation deps.support.test_core
+    debugImplementation deps.support.fragment_testing
 
     // Kotlin
     testImplementation deps.kotlin.test
@@ -58,4 +60,5 @@ dependencies {
     // Android Testing Support Library
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso
+    androidTestImplementation deps.atsl.espresso_contrib
 }

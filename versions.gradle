@@ -28,8 +28,9 @@ def support = [:]
 support.appcompat = "androidx.appcompat:appcompat:$versions.appcompat"
 support.test_core = "android.arch.core:core-testing:$versions.test_core"
 support.material = "com.google.android.material:material:$versions.material"
-support.fragment = "androidx.fragment:fragment-ktx:$versions.fragment"
 support.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+support.fragment = "androidx.fragment:fragment-ktx:$versions.fragment"
+support.fragment_testing = "androidx.fragment:fragment-testing:$versions.fragment"
 deps.support = support
 
 def kotlin = [:]
@@ -57,6 +58,7 @@ def atsl = [:]
 atsl.junit = "junit:junit:$versions.junit"
 atsl.ext_junit = "androidx.test.ext:junit:$versions.atsl_junit"
 atsl.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
+atsl.espresso_contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
 deps.atsl = atsl
 
 def room = [:]

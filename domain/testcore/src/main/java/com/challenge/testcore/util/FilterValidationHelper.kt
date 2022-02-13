@@ -1,9 +1,9 @@
-package com.challenge.domain.util
+package com.challenge.testcore.util
 
 import com.challenge.domain.model.RestaurantOpenStatus
 import com.challenge.testcore.factory.RestaurantFactory
 
-internal object FilterValidationHelper {
+object FilterValidationHelper {
 
     private val rest1 = RestaurantFactory.make(
         name = "rest1",

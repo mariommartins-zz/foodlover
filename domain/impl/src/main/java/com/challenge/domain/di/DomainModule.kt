@@ -18,10 +18,10 @@ private val useCaseModule = module {
     factory<GetSortedRestaurantListUseCase> {
         GetSortedRestaurantList(repository = get())
     }
-    factory<ToggleRestaurantFavoriteStatusUseCase> {
+    single<ToggleRestaurantFavoriteStatusUseCase> {
         ToggleRestaurantFavoriteStatus(repository = get())
     }
-    factory<ObserveRestaurantFavoriteStatusUseCase> {
+    single<ObserveRestaurantFavoriteStatusUseCase> {
         ObserveRestaurantFavoriteStatus(repository = get())
     }
 }

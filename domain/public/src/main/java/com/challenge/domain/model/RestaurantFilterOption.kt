@@ -1,6 +1,6 @@
 package com.challenge.domain.model
 
-enum class RestaurantFilterOption(private val value: Int) {
+enum class RestaurantFilterOption(val value: Int) {
     BEST_MATCH(0),
     NEWEST(1),
     RATING_AVERAGE(2),

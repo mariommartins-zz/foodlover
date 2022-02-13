@@ -2,7 +2,7 @@ package com.challenge.domain.usecase
 
 import com.challenge.domain.model.RestaurantFilterOption
 import com.challenge.domain.repository.IRestaurantRepository
-import com.challenge.domain.util.FilterValidationHelper
+import com.challenge.testcore.util.FilterValidationHelper
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
