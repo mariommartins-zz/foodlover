@@ -26,10 +26,7 @@ class RestaurantListFragment : ErrorHandlingFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = FragmentRestaurantListBinding.inflate(inflater).apply {
-        lifecycleOwner = viewLifecycleOwner
-        binding = this
-    }.root
+    ): View = FragmentRestaurantListBinding.inflate(inflater).apply { binding = this }.root
 
     override fun doOnViewCreated(view: View, savedInstanceState: Bundle?) {
         setupView()
