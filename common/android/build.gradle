@@ -28,7 +28,7 @@ dependencies {
     implementation deps.koin.core
 
     // DataBinding
-    implementation deps.databinding.runtime
+    implementation deps.databinding
 
     // Mockk
     testImplementation deps.mockk.unit

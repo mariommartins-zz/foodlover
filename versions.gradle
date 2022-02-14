@@ -38,14 +38,11 @@ kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 kotlin.coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
 kotlin.coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
-kotlin.coroutines_test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines"
 deps.kotlin = kotlin
 
 def koin = [:]
 koin.core = "org.koin:koin-android:$versions.koin"
-koin.android_scope = "org.koin:koin-androidx-scope:$versions.koin"
 koin.android_viewmodel = "org.koin:koin-androidx-viewmodel:$versions.koin"
-koin.unit_test = "org.koin:koin-test:$versions.koin"
 deps.koin = koin
 
 def navigation = [:]
@@ -55,7 +52,6 @@ navigation.safe_args = "androidx.navigation:navigation-safe-args-gradle-plugin:$
 deps.navigation = navigation
 
 def atsl = [:]
-atsl.junit = "junit:junit:$versions.junit"
 atsl.ext_junit = "androidx.test.ext:junit:$versions.atsl_junit"
 atsl.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
 atsl.espresso_contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
@@ -67,19 +63,14 @@ room.compiler = "androidx.room:room-compiler:$versions.room"
 room.ktx = "androidx.room:room-ktx:$versions.room"
 deps.room = room
 
-def databinding = [:]
-databinding.compiler = "androidx.databinding:databinding-compiler:$versions.android_gradle_plugin"
-databinding.runtime = "androidx.databinding:databinding-runtime:$versions.android_gradle_plugin"
-deps.databinding = databinding
-
 def mockk = [:]
 mockk.unit = "io.mockk:mockk:$versions.mockk"
 mockk.instrumented = "io.mockk:mockk-android:$versions.mockk"
 deps.mockk = mockk
 
+deps.databinding = "androidx.databinding:databinding-runtime:$versions.android_gradle_plugin"
 deps.livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle_livedata"
 deps.swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swiperefreshlayout"
-deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
 deps.gson = "com.google.code.gson:gson:$versions.gson"
 
 ext.deps = deps
