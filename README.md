@@ -36,7 +36,7 @@ This is a single-activity app that reads a restaurant list from a Json file and 
     - MIN_COST -> Ascending
 
 ## Future improvements
-- We have unit & integration tests, but it would be good to have Integration tests as well.
+- We have unit & instrumented tests, but it would be good to have Integration tests as well.
 - Empty state for errors that would make it not possible to show the result list.
 - The list animation in the ListAdapter has a bug, it always keeps the top item presented in the list at the top, what gives the necessity to scroll top sometimes after applying a new filter.
 - The navigation allows double tap.
