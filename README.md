@@ -1,7 +1,7 @@
 # FoodLover
 This project was made in Kotlin using AndroidX and the following libs (the major libs are in bold):
-- **Koin for dependency injection**
-- **Coroutines for multithreading**
+- **Koin**
+- **Coroutines**
 - **Navigation**
 - **Databinding**
 - **Paging**
