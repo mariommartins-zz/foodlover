@@ -1,3 +1,5 @@
 package com.challenge.common.android.extensions
 
-fun Int.asMoney(): String = (toFloat() / 100).toString()
+private const val CENTS_DIVISOR = 100
+
+fun Int.asMoney(): String = (toFloat() / CENTS_DIVISOR).toString()
