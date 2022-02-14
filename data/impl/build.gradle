@@ -3,22 +3,25 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
-
-android {
-    compileSdk build_versions.target_sdk
-}
+apply from: "$rootDir/plugins/android.gradle"
 
 dependencies {
-    implementation project(path: ':common:android')
+    // Modules
     implementation project(path: ':domain:public')
+    implementation project(path: ':common:android')
+    testImplementation project(path: ':common:testcore')
+
+    // Android Support
+    testImplementation deps.support.test_core
+
+    // Kotlin
+    testImplementation deps.kotlin.test
 
     // Livedata
-    implementation deps.livedata.core_ktx
-    implementation deps.livedata.ktx
+    implementation deps.livedata
 
     // Koin
     implementation deps.koin.core
-    testImplementation deps.koin.unit_test
 
     // Gson
     implementation deps.gson
@@ -27,4 +30,7 @@ dependencies {
     implementation deps.room.runtime
     implementation deps.room.ktx
     kapt deps.room.compiler
+
+    // Mockk
+    testImplementation deps.mockk.unit
 }

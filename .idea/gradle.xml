@@ -13,12 +13,13 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/common/android" />
+            <option value="$PROJECT_DIR$/common/kotlin" />
+            <option value="$PROJECT_DIR$/common/testcore" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/impl" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/impl" />
             <option value="$PROJECT_DIR$/domain/public" />
-            <option value="$PROJECT_DIR$/presentation" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

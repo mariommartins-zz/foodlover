@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Restaurant List -->
+    <dimen name="margin_restaurant_list_sorting_options_sp">16dp</dimen>
+    <dimen name="margin_height_restaurant_list_sorting_options_sp">48dp</dimen>
+    <dimen name="margin_start_restaurant_list_sorting_options_sp">16dp</dimen>
+    <dimen name="margin_top_restaurant_list_sorting_options_sp">16dp</dimen>
+
+    <!-- Item Restaurant -->
+    <dimen name="margin_horizontal_item_restaurant_card">16dp</dimen>
+    <dimen name="text_size_item_restaurant_name">14sp</dimen>
+    <dimen name="margin_top_item_restaurant_card">8dp</dimen>
+    <dimen name="card_corner_radius_item_restaurant_card">4dp</dimen>
+    <dimen name="card_elevation_item_restaurant_card">2dp</dimen>
+    <dimen name="margin_start_item_restaurant_ratingbar">8dp</dimen>
+    <dimen name="margin_top_item_restaurant_ratingbar">8dp</dimen>
+    <dimen name="margin_top_item_restaurant_status_bar">8dp</dimen>
+    <dimen name="margin_item_restaurant_name_txt">8dp</dimen>
+    <dimen name="padding_item_restaurant_favorite_btn">16dp</dimen>
+
+    <!-- Favorite Button -->
+    <dimen name="layout_width_restaurant_favorite_btn">60dp</dimen>
+
+    <!-- Restaurant Details -->
+    <dimen name="margin_start_restaurant_details_status_bar">16dp</dimen>
+    <dimen name="margin_horizontal_restaurant_details_name">16dp</dimen>
+    <dimen name="text_size_restaurant_details_name">16sp</dimen>
+    <dimen name="min_height_restaurant_details_info_content_scroll">300dp</dimen>
+    <dimen name="padding_bottom_restaurant_details_info_content_scroll">8dp</dimen>
+    <dimen name="padding_start_restaurant_details_info_content">16dp</dimen>
+    <dimen name="padding_end_restaurant_details_info_content">16dp</dimen>
+    <dimen name="margin_top_restaurant_details_info_item">8dp</dimen>
+
+    <!-- Item Info -->
+    <dimen name="text_size_include_restaurant_info_label">12sp</dimen>
+    <dimen name="margin_top_include_restaurant_info_label">8dp</dimen>
+    <dimen name="margin_start_include_restaurant_info_label">8dp</dimen>
+    <dimen name="text_size_include_restaurant_info_value">16sp</dimen>
+    <dimen name="margin_start_include_restaurant_info_value">8dp</dimen>
+    <dimen name="margin_end_include_restaurant_info_value">8dp</dimen>
+    <dimen name="margin_bottom_include_restaurant_info_value">8dp</dimen>
+    <dimen name="card_corner_radius_include_restaurant_info_card">4dp</dimen>
+    <dimen name="card_elevation_include_restaurant_info_card">2dp</dimen>
+</resources>

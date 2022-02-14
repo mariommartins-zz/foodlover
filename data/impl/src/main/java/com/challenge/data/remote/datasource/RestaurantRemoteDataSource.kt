@@ -9,5 +9,5 @@ internal class RestaurantRemoteDataSource(
     private val mapFromResponseToModel: MapRestaurantFromResponseToModelAlias
 ) : IRestaurantRemoteDataSource {
     override suspend fun fetchRestaurants(): List<Restaurant> =
-        api.fetchRestaurants().map { mapFromResponseToModel(it) }
+        api.fetchRestaurants().mapNotNull { mapFromResponseToModel(it) }
 }

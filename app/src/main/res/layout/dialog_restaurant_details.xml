@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="state"
+            type="com.challenge.foodlover.feature.restaurantdetails.IRestaurantDetailsViewState" />
+
+        <variable
+            name="action"
+            type="com.challenge.foodlover.feature.restaurantdetails.IRestaurantDetailsViewAction" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/restaurant_details_favorite_ib"
+            style="@style/RestaurantFavoriteButton"
+            toggleStatus="@{ state.isFavorite }"
+            toggledDescription="@{ @string/content_description_restaurant_favorite_checked_text }"
+            untoggledDescription="@{ @string/content_description_restaurant_favorite_unchecked_text }"
+            android:layout_width="@dimen/layout_width_restaurant_favorite_btn"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/content_description_restaurant_favorite_default_text"
+            android:onClick="@{ () -> action.toggleFavoriteStatus() }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/restaurant_details_status_bar_txt"
+            style="@style/RestaurantStatusBar"
+            restaurantStatus="@{ state.status }"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_restaurant_details_status_bar"
+            app:layout_constraintBottom_toBottomOf="@id/restaurant_details_favorite_ib"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="open" />
+
+        <TextView
+            android:id="@+id/restaurant_details_name_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_restaurant_details_name"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@{ state.name }"
+            android:textSize="@dimen/text_size_restaurant_details_name"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/restaurant_details_favorite_ib"
+            tools:text="Indian Kitchen" />
+
+        <ScrollView
+            android:id="@+id/restaurant_details_info_content_scroll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:maxHeight="@dimen/min_height_restaurant_details_info_content_scroll"
+            android:paddingBottom="@dimen/padding_bottom_restaurant_details_info_content_scroll"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/restaurant_details_name_txt">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/padding_start_restaurant_details_info_content"
+                android:paddingEnd="@dimen/padding_end_restaurant_details_info_content">
+
+                <include
+                    android:id="@+id/restaurant_details_best_match_container"
+                    layout="@layout/include_restaurant_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
+                    app:infoValue="@{ state.bestMatch }"
+                    app:label="@{@string/restaurant_sorting_option_best_match}" />
+
+                <include
+                    android:id="@+id/restaurant_details_newest_container"
+                    layout="@layout/include_restaurant_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
+                    app:infoValue="@{ state.newest }"
+                    app:label="@{@string/restaurant_sorting_option_newest}" />
+
+                <include
+                    android:id="@+id/restaurant_details_rating_average_container"
+                    layout="@layout/include_restaurant_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
+                    app:infoValue="@{ state.ratingAverage }"
+                    app:label="@{@string/restaurant_sorting_option_rating_average}" />
+
+                <include
+                    android:id="@+id/restaurant_details_distance_container"
+                    layout="@layout/include_restaurant_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
+                    app:infoValue="@{ state.distance }"
+                    app:label="@{@string/restaurant_sorting_option_distance}" />
+
+                <include
+                    android:id="@+id/restaurant_details_popularity_container"
+                    layout="@layout/include_restaurant_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
+                    app:infoValue="@{ state.popularity }"
+                    app:label="@{@string/restaurant_sorting_option_popularity}" />
+
+                <include
+                    android:id="@+id/restaurant_details_average_product_price_container"
+                    layout="@layout/include_restaurant_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
+                    app:infoValue="@{ state.averageProductPrice }"
+                    app:label="@{@string/restaurant_sorting_option_average_product_price}" />
+
+                <include
+                    android:id="@+id/restaurant_details_delivery_cost_container"
+                    layout="@layout/include_restaurant_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
+                    app:infoValue="@{ state.deliveryCosts }"
+                    app:label="@{@string/restaurant_sorting_option_delivery_cost}" />
+
+                <include
+                    android:id="@+id/restaurant_details_minimum_cost_container"
+                    layout="@layout/include_restaurant_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
+                    app:infoValue="@{ state.minCost }"
+                    app:label="@{@string/restaurant_sorting_option_minimum_cost}" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

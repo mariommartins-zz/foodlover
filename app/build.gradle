@@ -2,92 +2,66 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
+apply from: "$rootDir/plugins/android.gradle"
 
 android {
-    compileSdk build_versions.target_sdk
-
     defaultConfig {
         applicationId "com.challenge.foodlover"
-        minSdk build_versions.min_sdk
-        targetSdk build_versions.target_sdk
         versionCode build_versions.version_code
         versionName build_versions.version_name
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
     dataBinding {
         enabled = true
     }
 
-    compileOptions {
-        sourceCompatibility build_versions.java
-        targetCompatibility build_versions.java
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
+    testOptions {
+        animationsDisabled = true
     }
 }
 
 dependencies {
+    // Modules
     implementation project(path: ':data:impl')
     implementation project(path: ':domain:impl')
     implementation project(path: ':domain:public')
-    implementation project(path: ':presentation')
+    implementation project(path: ':common:android')
+    implementation project(path: ':common:kotlin')
+    testImplementation project(path: ':common:testcore')
+    androidTestImplementation project(path: ':common:testcore')
 
     // Android Support
     implementation deps.support.appcompat
-    implementation deps.support.material
-    implementation deps.support.constraintlayout
-    implementation deps.support.recyclerview
-    implementation deps.support.cardview
-
-    // KTX
-    implementation deps.core_ktx
+    testImplementation deps.support.test_core
+    debugImplementation deps.support.fragment_testing
 
     // Kotlin
-    implementation deps.kotlin.stdlib
-    implementation deps.kotlin.test
-    implementation deps.kotlin.coroutines
-    implementation deps.kotlin.coroutines_core
-    testImplementation deps.kotlin.coroutines_test
-    androidTestImplementation deps.kotlin.coroutines_test
+    testImplementation deps.kotlin.test
+
+    // Swipe Refresh Layout
+    implementation deps.swiperefreshlayout
 
     // Koin
     implementation deps.koin.core
-    implementation deps.koin.android_scope
     implementation deps.koin.android_viewmodel
-    testImplementation deps.koin.unit_test
-
-    // DataBinding
-    kapt deps.databinding
 
     // Android Navigation
     implementation deps.navigation.fragment
     implementation deps.navigation.ui
 
-    // Glide
-    implementation deps.glide
-
     // Gson
     implementation deps.gson
 
+    // Mockk
+    testImplementation deps.mockk.unit
+    androidTestImplementation deps.mockk.instrumented
+
     // Android Testing Support Library
-    testImplementation deps.atsl.junit
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso
-
-    // Database
-    implementation deps.room.runtime
-    implementation deps.room.ktx
-    kapt deps.room.compiler
+    androidTestImplementation deps.atsl.espresso_contrib
 }

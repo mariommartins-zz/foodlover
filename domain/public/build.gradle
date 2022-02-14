@@ -1,14 +1,15 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
     id 'kotlin-kapt'
 }
-
-android {
-    compileSdk build_versions.target_sdk
-}
+apply from: "$rootDir/plugins/android.gradle"
 
 dependencies {
     // Livedata
-    implementation deps.livedata.core_ktx
+    implementation deps.livedata
+
+    // Coroutines
+    implementation deps.kotlin.coroutines_core
 }

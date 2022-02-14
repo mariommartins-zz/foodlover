@@ -11,5 +11,7 @@ interface IRestaurantRepository {
 
     suspend fun removeFavorite(restaurant: Restaurant)
 
+    suspend fun isFavorite(restaurant: Restaurant): Boolean
+
     fun observeFavoriteStatusBy(name: String): LiveData<Boolean>
 }

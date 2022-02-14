@@ -1,0 +1,5 @@
+<resources>
+    <!-- FoodLover Warnings -->
+    <string name="parsing_error_text">It was not possible to process the restaurant data. Please contact support.</string>
+    <string name="generic_error_text">It was not possible to complete your request.</string>
+</resources>
