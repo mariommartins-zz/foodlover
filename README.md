@@ -1,4 +1,10 @@
 # FoodLover
+
+| Restaurant List  | Filter Option List | Restaurant Details |
+| ------------- | ------------- | ------------- |
+| <img src="https://user-images.githubusercontent.com/2800981/153899997-82f3bc65-ffc4-4cc7-8b88-d6ae96e4bd3a.jpeg" width="250"> | <img src="https://user-images.githubusercontent.com/2800981/153899994-d52376dd-ff92-4d47-b1bc-f184dcfecf1d.jpeg" width="250">  | <img src="https://user-images.githubusercontent.com/2800981/153899957-e2427797-ef8c-4be6-8f3f-0bdf22f4a7b9.jpeg" width="250"> |
+
+## Technologies
 This project was made in Kotlin using AndroidX and the following libs (the major libs are in bold):
 - **Koin**
 - **Coroutines**
