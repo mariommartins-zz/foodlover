@@ -11,11 +11,8 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.Visibility.GONE
-import androidx.test.espresso.matcher.ViewMatchers.Visibility.VISIBLE
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withEffectiveVisibility
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withSpinnerText
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -45,6 +42,9 @@ internal fun swipeItemOn(@IdRes recyclerView: Int, position: Int): ViewInteracti
     onView(withId(recyclerView))
         .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(position, ViewActions.swipeLeft()))
 
+internal fun swipeTo(@IdRes viewId: Int): ViewInteraction =
+    onView(withId(viewId)).perform(ViewActions.scrollTo()).check(matches(isDisplayed()))
+
 internal fun matchWithItemCount(@IdRes viewId: Int, amount: Int): ViewInteraction =
     onView(allOf(withId(viewId), isDisplayed())).check(matches(withItemCount(amount)))
 
@@ -53,6 +53,13 @@ internal fun matchText(@IdRes viewId: Int, @StringRes stringId: Int): ViewIntera
 
 internal fun matchText(@IdRes viewId: Int, text: String): ViewInteraction =
     onView(withId(viewId)).check(matches(withText(text)))
+
+internal fun matchTextAtIncludedView(
+    @IdRes containerId: Int,
+    @IdRes viewId: Int,
+    text: String
+): ViewInteraction =
+    onView(withId(containerId)).check(matches(hasDescendant(allOf(withId(viewId), withText(text)))))
 
 internal fun matchSpinnerText(@IdRes viewId: Int, @StringRes stringId: Int): ViewInteraction =
     onView(withId(viewId)).check(matches(withSpinnerText(stringId)))
@@ -70,9 +77,9 @@ internal fun matchTextOfDisplayedListItem(
     @IdRes listId: Int,
     position: Int,
     @IdRes viewId: Int,
-    @StringRes textId: Int
+    @StringRes stringId: Int
 ): ViewInteraction = onView(withId(listId)).check(
-    matches(atPosition(position, hasDescendant(allOf(withId(viewId), withText(textId)))))
+    matches(atPosition(position, hasDescendant(allOf(withId(viewId), withText(stringId)))))
 )
 
 internal fun matchIsCheckedOnDisplayedListItem(
@@ -110,12 +117,3 @@ internal fun matchIsChecked(@IdRes viewId: Int): ViewInteraction =
 
 internal fun matchIsNotChecked(@IdRes viewId: Int): ViewInteraction =
     onView(withId(viewId)).check(matches(Matchers.not(ViewMatchers.isChecked())))
-
-internal fun matchVisible(@IdRes viewId: Int): ViewInteraction = matchVisibility(viewId, VISIBLE)
-
-internal fun matchGone(@IdRes viewId: Int): ViewInteraction = matchVisibility(viewId, GONE)
-
-private fun matchVisibility(
-    @IdRes viewId: Int,
-    visibility: ViewMatchers.Visibility
-): ViewInteraction = onView(withId(viewId)).check(matches(withEffectiveVisibility(visibility)))

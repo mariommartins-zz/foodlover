@@ -25,6 +25,14 @@ internal object RestaurantListRobot {
         )
     }
 
+    fun clickToFavoriteRestaurantItem(position: Int) {
+        clickOnElementOfDisplayedListItem<RestaurantItemViewHolder>(
+            listId = R.id.restaurant_list_container_rv,
+            position = position,
+            viewId = R.id.item_restaurant_favorite_ib
+        )
+    }
+
     fun clickOnFilterOptionBy(position: Int) {
         clickOnView(R.id.restaurant_list_sorting_options_sp)
         clickOnElementOfSpinner(position)
@@ -67,7 +75,7 @@ internal object RestaurantListRobot {
     }
 
     private fun matchRestaurantStatusAt(position: Int, status: RestaurantOpenStatus) {
-        val textId = when (status) {
+        val stringId = when (status) {
             RestaurantOpenStatus.OPEN -> R.string.restaurant_open_status_bar_text
             RestaurantOpenStatus.ORDER_AHEAD -> R.string.restaurant_order_ahead_status_bar_text
             RestaurantOpenStatus.CLOSED -> R.string.restaurant_closed_status_bar_text
@@ -76,7 +84,7 @@ internal object RestaurantListRobot {
             listId = R.id.restaurant_list_container_rv,
             position = position,
             viewId = R.id.item_restaurant_status_bar_txt,
-            textId = textId
+            stringId = stringId
         )
     }
 

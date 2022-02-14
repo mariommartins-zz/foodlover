@@ -18,6 +18,10 @@ android {
     dataBinding {
         enabled = true
     }
+
+    testOptions {
+        animationsDisabled = true
+    }
 }
 
 dependencies {
@@ -27,9 +31,8 @@ dependencies {
     implementation project(path: ':domain:public')
     implementation project(path: ':common:android')
     implementation project(path: ':common:kotlin')
-    testImplementation project(path: ':domain:testcore')
     testImplementation project(path: ':common:testcore')
-    androidTestImplementation project(path: ':domain:testcore')
+    androidTestImplementation project(path: ':common:testcore')
 
     // Android Support
     implementation deps.support.appcompat

@@ -9,7 +9,6 @@ dependencies {
     // Modules
     implementation project(path: ':domain:public')
     implementation project(path: ':common:kotlin')
-    testImplementation project(path: ':domain:testcore')
     testImplementation project(path: ':common:testcore')
 
     // Android Support

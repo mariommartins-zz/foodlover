@@ -6,6 +6,7 @@ apply from: "$rootDir/plugins/android.gradle"
 
 dependencies {
     // Modules
+    implementation project(path: ':domain:public')
     implementation project(path: ':common:kotlin')
 
     // Coroutines

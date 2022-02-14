@@ -20,7 +20,6 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/impl" />
             <option value="$PROJECT_DIR$/domain/public" />
-            <option value="$PROJECT_DIR$/domain/testcore" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

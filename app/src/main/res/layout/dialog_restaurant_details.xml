@@ -60,6 +60,7 @@
             tools:text="Indian Kitchen" />
 
         <ScrollView
+            android:id="@+id/restaurant_details_info_content_scroll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fadeScrollbars="false"
@@ -78,6 +79,7 @@
                 android:paddingEnd="@dimen/padding_end_restaurant_details_info_content">
 
                 <include
+                    android:id="@+id/restaurant_details_best_match_container"
                     layout="@layout/include_restaurant_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -86,6 +88,7 @@
                     app:label="@{@string/restaurant_sorting_option_best_match}" />
 
                 <include
+                    android:id="@+id/restaurant_details_newest_container"
                     layout="@layout/include_restaurant_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,6 +97,7 @@
                     app:label="@{@string/restaurant_sorting_option_newest}" />
 
                 <include
+                    android:id="@+id/restaurant_details_rating_average_container"
                     layout="@layout/include_restaurant_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -102,6 +106,7 @@
                     app:label="@{@string/restaurant_sorting_option_rating_average}" />
 
                 <include
+                    android:id="@+id/restaurant_details_distance_container"
                     layout="@layout/include_restaurant_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -110,6 +115,7 @@
                     app:label="@{@string/restaurant_sorting_option_distance}" />
 
                 <include
+                    android:id="@+id/restaurant_details_popularity_container"
                     layout="@layout/include_restaurant_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,6 +124,7 @@
                     app:label="@{@string/restaurant_sorting_option_popularity}" />
 
                 <include
+                    android:id="@+id/restaurant_details_average_product_price_container"
                     layout="@layout/include_restaurant_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -126,6 +133,7 @@
                     app:label="@{@string/restaurant_sorting_option_average_product_price}" />
 
                 <include
+                    android:id="@+id/restaurant_details_delivery_cost_container"
                     layout="@layout/include_restaurant_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,6 +142,7 @@
                     app:label="@{@string/restaurant_sorting_option_delivery_cost}" />
 
                 <include
+                    android:id="@+id/restaurant_details_minimum_cost_container"
                     layout="@layout/include_restaurant_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

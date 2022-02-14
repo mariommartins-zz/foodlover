@@ -17,21 +17,17 @@ import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
 internal class FragmentTestRule<T : Fragment>(
-    val fragmentClass: Class<T>,
+    private val fragmentClass: Class<T>,
     @StyleRes val themeResId: Int = R.style.Theme_FoodLover,
     private val lifecycleInitState: Lifecycle.State = Lifecycle.State.RESUMED,
 ) : TestWatcher() {
 
     private var setupBeforeAction: () -> Unit = {}
-    private var setupBeforeFragmentOpen: (T) -> Unit = {}
     private var setupBundleFragment: Bundle = Bundle()
 
     private var fragmentScenario: FragmentScenario<T>? = null
 
     val navController: NavController = mockk(relaxed = true)
-
-    var fragment: Fragment? = null
-        private set
 
     override fun starting(description: Description?) {
         super.starting(description)
@@ -46,16 +42,8 @@ internal class FragmentTestRule<T : Fragment>(
         setupBeforeAction = block
     }
 
-    fun beforeFragmentOpen(block: (T) -> Unit) {
-        setupBeforeFragmentOpen = block
-    }
-
-    fun putBundles(block: Bundle.() -> Unit) = apply {
+    fun setupBundle(block: (Bundle) -> Unit) = apply {
         block.invoke(setupBundleFragment)
-    }
-
-    fun afterFragmentOpen(action: (T) -> Unit) {
-        fragmentScenario?.onFragment(action)
     }
 
     private fun launchFragment() {
@@ -78,11 +66,7 @@ internal class FragmentTestRule<T : Fragment>(
     }
 
     private fun setupFragmentInitialization(fragmentScenario: FragmentScenario<T>) {
-        fragmentScenario.onFragment { frag ->
-            setupBeforeFragmentOpen(frag)
-            configureNavigationController(frag)
-            fragment = frag
-        }
+        fragmentScenario.onFragment(::configureNavigationController)
 
         if (lifecycleInitState != Lifecycle.State.RESUMED) {
             fragmentScenario.moveToState(Lifecycle.State.RESUMED)

@@ -3,9 +3,12 @@ package com.challenge.foodlover.feature.restaurantlist
 import androidx.navigation.NavDirections
 import com.challenge.domain.model.RestaurantFilterOption
 import com.challenge.domain.usecase.GetSortedRestaurantListUseCase
+import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
 import com.challenge.foodlover.R
 import com.challenge.foodlover.util.rule.FragmentTestRule
 import com.challenge.testcore.util.FilterValidationHelper
+import io.mockk.coVerify
+import io.mockk.mockk
 import io.mockk.spyk
 import io.mockk.verify
 import org.junit.Rule
@@ -16,6 +19,8 @@ import org.koin.dsl.module
 internal class RestaurantListFragmentTest {
 
     private val getSortedRestaurantList = spyk(GetSortedRestaurantListTestHelper())
+    private val toggleRestaurantFavoriteStatus =
+        mockk<ToggleRestaurantFavoriteStatusUseCase>(relaxed = true)
 
     @get:Rule
     val fragmentTestRule = FragmentTestRule(RestaurantListFragment::class.java)
@@ -24,6 +29,7 @@ internal class RestaurantListFragmentTest {
         fragmentTestRule.beforeAction {
             module(override = true) {
                 factory<GetSortedRestaurantListUseCase> { getSortedRestaurantList }
+                single { toggleRestaurantFavoriteStatus }
             }.also { loadKoinModules(it) }
         }
     }
@@ -44,6 +50,16 @@ internal class RestaurantListFragmentTest {
         //Then
         verify { fragmentTestRule.navController.navigate(any<NavDirections>()) }
     }
+
+    @Test
+    fun whenClickToFavoriteRestaurantFromList_ShouldCallToggleFavoriteUseCase() =
+        restaurantListState {
+            //When
+            clickToFavoriteRestaurantItem(0)
+
+            //Then
+            coVerify { toggleRestaurantFavoriteStatus(any()) }
+        }
 
     @Test
     fun whenSelectNewestFilterOption_ShouldDisplayNewestSortedList() = restaurantListState {
