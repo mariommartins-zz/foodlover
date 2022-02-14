@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ state.distance }"
+                    app:infoValue="@{ @plurals/restaurant_details_distance_text(state.distance, state.distance) }"
                     app:label="@{@string/restaurant_sorting_option_distance}" />
 
                 <include
@@ -129,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ state.averageProductPrice }"
+                    app:infoValue="@{ @string/restaurant_details_money_text(state.averageProductPrice) }"
                     app:label="@{@string/restaurant_sorting_option_average_product_price}" />
 
                 <include
@@ -138,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ state.deliveryCosts }"
+                    app:infoValue="@{ @string/restaurant_details_money_text(state.deliveryCosts) }"
                     app:label="@{@string/restaurant_sorting_option_delivery_cost}" />
 
                 <include
@@ -147,7 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_top_restaurant_details_info_item"
-                    app:infoValue="@{ state.minCost }"
+                    app:infoValue="@{ @string/restaurant_details_money_text(state.minCost) }"
                     app:label="@{@string/restaurant_sorting_option_minimum_cost}" />
             </LinearLayout>
         </ScrollView>

@@ -5,7 +5,7 @@ import com.challenge.common.android.presentationarch.ViewModel
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
 import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
-import com.challenge.kotlin.DispatcherMap
+import com.challenge.kotlin.dispatchers.DispatcherMap
 import kotlinx.coroutines.launch
 
 class RestaurantDetailsViewModel(

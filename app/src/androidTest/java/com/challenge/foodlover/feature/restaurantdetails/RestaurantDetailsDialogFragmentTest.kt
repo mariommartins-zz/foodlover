@@ -1,10 +1,12 @@
 package com.challenge.foodlover.feature.restaurantdetails
 
+import com.challenge.common.android.extensions.asMoney
 import com.challenge.domain.usecase.ToggleRestaurantFavoriteStatusUseCase
 import com.challenge.foodlover.util.rule.FragmentTestRule
 import com.challenge.testcore.factory.RestaurantFactory
 import io.mockk.coVerify
 import io.mockk.mockk
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.koin.core.context.loadKoinModules
@@ -30,6 +32,11 @@ internal class RestaurantDetailsDialogFragmentTest {
         }
     }
 
+    @Before
+    fun setup() {
+        RestaurantDetailsRobot.resources = fragmentTestRule.fragment?.resources
+    }
+
     @Test
     fun whenClickToFavorite_ShouldCallToggleFavoriteUseCase() = restaurantDetailsState {
         //When
@@ -48,10 +55,10 @@ internal class RestaurantDetailsDialogFragmentTest {
         matchRestaurantBestMatchValue(mockedRestaurant.bestMatch.toString())
         matchRestaurantNewestValue(mockedRestaurant.newest.toString())
         matchRestaurantRatingAverageValue(mockedRestaurant.ratingAverage.toString())
-        matchRestaurantDistanceValue(mockedRestaurant.distance.toString())
+        matchRestaurantDistanceValue(mockedRestaurant.distance)
         matchRestaurantPopularityValue(mockedRestaurant.popularity.toString())
-        matchRestaurantAverageProductPriceValue(mockedRestaurant.averageProductPrice.toString())
-        matchRestaurantDeliveryCostValue(mockedRestaurant.deliveryCosts.toString())
-        matchRestaurantMinimumCostValue(mockedRestaurant.minCost.toString())
+        matchRestaurantAverageProductPriceValue(mockedRestaurant.averageProductPrice.asMoney())
+        matchRestaurantDeliveryCostValue(mockedRestaurant.deliveryCosts.asMoney())
+        matchRestaurantMinimumCostValue(mockedRestaurant.minCost.asMoney())
     }
 }

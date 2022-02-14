@@ -1,4 +1,4 @@
-package com.challenge.kotlin
+package com.challenge.kotlin.dispatchers
 
 import kotlinx.coroutines.CoroutineDispatcher
 

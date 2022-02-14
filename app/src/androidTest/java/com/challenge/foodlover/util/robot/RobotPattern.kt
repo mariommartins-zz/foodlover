@@ -57,7 +57,7 @@ internal fun matchText(@IdRes viewId: Int, text: String): ViewInteraction =
 internal fun matchTextAtIncludedView(
     @IdRes containerId: Int,
     @IdRes viewId: Int,
-    text: String
+    text: String?
 ): ViewInteraction =
     onView(withId(containerId)).check(matches(hasDescendant(allOf(withId(viewId), withText(text)))))
 
