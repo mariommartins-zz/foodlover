@@ -14,6 +14,13 @@
     <!-- Restaurant List -->
     <string name="restaurant_list_sorting_label_txt">Sort by:</string>
 
+    <!-- Restaurant Details -->
+    <plurals name="restaurant_details_distance_text">
+        <item quantity="one">%1$d meter</item>
+        <item quantity="other">%1$d meters</item>
+    </plurals>
+    <string name="restaurant_details_money_text">$ %1$s</string>
+
     <!-- Restaurant Sorting Options -->
     <string name="restaurant_sorting_option_best_match">Best match</string>
     <string name="restaurant_sorting_option_newest">Newest</string>

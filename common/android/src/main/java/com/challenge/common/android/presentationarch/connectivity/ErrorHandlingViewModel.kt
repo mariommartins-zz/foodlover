@@ -11,7 +11,7 @@ import com.challenge.common.android.presentationarch.connectivity.model.ErrorCau
 import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException.IOFoodLoverException
 import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException.JsonParsingFoodLoverException
 import com.challenge.common.android.util.SingleLiveEvent
-import com.challenge.kotlin.DispatcherMap
+import com.challenge.kotlin.dispatchers.DispatcherMap
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 

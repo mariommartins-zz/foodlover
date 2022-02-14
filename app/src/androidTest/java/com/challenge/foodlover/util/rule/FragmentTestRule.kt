@@ -9,7 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.challenge.foodlover.R
 import com.challenge.foodlover.util.dispatchers.InstrumentedTestDispatcherMap
-import com.challenge.kotlin.DispatcherMap
+import com.challenge.kotlin.dispatchers.DispatcherMap
 import io.mockk.mockk
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
@@ -28,6 +28,9 @@ internal class FragmentTestRule<T : Fragment>(
     private var fragmentScenario: FragmentScenario<T>? = null
 
     val navController: NavController = mockk(relaxed = true)
+
+    var fragment: Fragment? = null
+        private set
 
     override fun starting(description: Description?) {
         super.starting(description)
@@ -66,7 +69,10 @@ internal class FragmentTestRule<T : Fragment>(
     }
 
     private fun setupFragmentInitialization(fragmentScenario: FragmentScenario<T>) {
-        fragmentScenario.onFragment(::configureNavigationController)
+        fragmentScenario.onFragment { frag ->
+            configureNavigationController(frag)
+            fragment = frag
+        }
 
         if (lifecycleInitState != Lifecycle.State.RESUMED) {
             fragmentScenario.moveToState(Lifecycle.State.RESUMED)

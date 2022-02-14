@@ -1,6 +1,6 @@
 package com.challenge.domain.dispatcher
 
-import com.challenge.kotlin.DispatcherMap
+import com.challenge.kotlin.dispatchers.DispatcherMap
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 

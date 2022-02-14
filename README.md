@@ -23,7 +23,7 @@ This is a single-activity app that reads a restaurant list from a Json file and 
 - From the restaurant list have the ability to favorite and unfavorite a restaurant.
 - From the restaurant list have the ability to sort the restaurant list based on the restaurants current opening state.
 - From the restaurant list have the ability to sort the restaurant list further with additional sorting options.
-- From the restaurant list have the ability to use **swipe to refresh in order to update the current shown list sort.**.
+- From the restaurant list have the ability to use **swipe to refresh in order to update the current shown list sort**.
 - From the restaurant details page have the ability to see the restaurant information (name, status, sorting values, favorite state).
 
 ## Important Points

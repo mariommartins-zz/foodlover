@@ -1,6 +1,7 @@
 package com.challenge.foodlover.feature.restaurantdetails
 
 import androidx.lifecycle.LiveData
+import com.challenge.common.android.extensions.asMoney
 import com.challenge.common.android.presentationarch.ViewState
 import com.challenge.domain.model.Restaurant
 import com.challenge.domain.model.RestaurantOpenStatus
@@ -12,7 +13,7 @@ interface IRestaurantDetailsViewState : ViewState {
     val bestMatch: String
     val newest: String
     val ratingAverage: String
-    val distance: String
+    val distance: Int
     val popularity: String
     val averageProductPrice: String
     val deliveryCosts: String
@@ -31,11 +32,11 @@ class RestaurantDetailsViewState(
     override val bestMatch get() = restaurant.bestMatch.toString()
     override val newest get() = restaurant.newest.toString()
     override val ratingAverage get() = restaurant.ratingAverage.toString()
-    override val distance get() = restaurant.distance.toString()
+    override val distance get() = restaurant.distance
     override val popularity get() = restaurant.popularity.toString()
-    override val averageProductPrice get() = restaurant.averageProductPrice.toString()
-    override val deliveryCosts get() = restaurant.deliveryCosts.toString()
-    override val minCost get() = restaurant.minCost.toString()
+    override val averageProductPrice get() = restaurant.averageProductPrice.asMoney()
+    override val deliveryCosts get() = restaurant.deliveryCosts.asMoney()
+    override val minCost get() = restaurant.minCost.asMoney()
 
     override val isFavorite: LiveData<Boolean> = observeRestaurantFavoriteStatus(restaurant)
 }

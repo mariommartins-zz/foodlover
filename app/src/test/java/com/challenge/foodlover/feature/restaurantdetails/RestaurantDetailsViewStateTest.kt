@@ -1,5 +1,6 @@
 package com.challenge.foodlover.feature.restaurantdetails
 
+import com.challenge.common.android.extensions.asMoney
 import com.challenge.domain.usecase.ObserveRestaurantFavoriteStatusUseCase
 import com.challenge.testcore.factory.RestaurantFactory
 import io.mockk.mockk
@@ -77,7 +78,7 @@ internal class RestaurantDetailsViewStateTest {
         val result = viewState.distance
 
         //Then
-        assertEquals(mockedRestaurant.distance.toString(), result)
+        assertEquals(mockedRestaurant.distance, result)
     }
 
     @Test
@@ -92,28 +93,31 @@ internal class RestaurantDetailsViewStateTest {
     @Test
     fun `when averageProductPrice is called Should return restaurant averageProductPrice as String`() {
         //When
+        val expected = mockedRestaurant.averageProductPrice.asMoney()
         val result = viewState.averageProductPrice
 
         //Then
-        assertEquals(mockedRestaurant.averageProductPrice.toString(), result)
+        assertEquals(expected, result)
     }
 
     @Test
     fun `when deliveryCosts is called Should return restaurant deliveryCosts as String`() {
         //When
+        val expected = mockedRestaurant.deliveryCosts.asMoney()
         val result = viewState.deliveryCosts
 
         //Then
-        assertEquals(mockedRestaurant.deliveryCosts.toString(), result)
+        assertEquals(expected, result)
     }
 
     @Test
     fun `when minCost is called Should return restaurant minCost as String`() {
         //When
-        val result = viewState.bestMatch
+        val expected = mockedRestaurant.minCost.asMoney()
+        val result = viewState.minCost
 
         //Then
-        assertEquals(mockedRestaurant.bestMatch.toString(), result)
+        assertEquals(expected, result)
     }
 
     @Test

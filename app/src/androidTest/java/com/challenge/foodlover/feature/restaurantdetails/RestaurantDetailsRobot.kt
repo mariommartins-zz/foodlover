@@ -1,5 +1,6 @@
 package com.challenge.foodlover.feature.restaurantdetails
 
+import android.content.res.Resources
 import com.challenge.domain.model.RestaurantOpenStatus
 import com.challenge.foodlover.R
 import com.challenge.foodlover.util.robot.clickOnView
@@ -10,6 +11,8 @@ import com.challenge.foodlover.util.robot.matchTextAtIncludedView
 import com.challenge.foodlover.util.robot.swipeTo
 
 internal object RestaurantDetailsRobot {
+    var resources: Resources? = null
+
     fun clickToFavoriteRestaurant() {
         clickOnView(viewId = R.id.restaurant_details_favorite_ib)
     }
@@ -64,7 +67,10 @@ internal object RestaurantDetailsRobot {
         )
     }
 
-    fun matchRestaurantDistanceValue(text: String) {
+    fun matchRestaurantDistanceValue(value: Int) {
+        val text =
+            resources?.getQuantityString(R.plurals.restaurant_details_distance_text, value, value)
+
         swipeTo(viewId = R.id.restaurant_details_distance_container)
         matchTextAtIncludedView(
             containerId = R.id.restaurant_details_distance_container,
@@ -82,7 +88,9 @@ internal object RestaurantDetailsRobot {
         )
     }
 
-    fun matchRestaurantAverageProductPriceValue(text: String) {
+    fun matchRestaurantAverageProductPriceValue(value: String) {
+        val text = resources?.getString(R.string.restaurant_details_money_text, value)
+
         swipeTo(viewId = R.id.restaurant_details_average_product_price_container)
         matchTextAtIncludedView(
             containerId = R.id.restaurant_details_average_product_price_container,
@@ -91,7 +99,9 @@ internal object RestaurantDetailsRobot {
         )
     }
 
-    fun matchRestaurantDeliveryCostValue(text: String) {
+    fun matchRestaurantDeliveryCostValue(value: String) {
+        val text = resources?.getString(R.string.restaurant_details_money_text, value)
+
         swipeTo(viewId = R.id.restaurant_details_delivery_cost_container)
         matchTextAtIncludedView(
             containerId = R.id.restaurant_details_delivery_cost_container,
@@ -100,7 +110,9 @@ internal object RestaurantDetailsRobot {
         )
     }
 
-    fun matchRestaurantMinimumCostValue(text: String) {
+    fun matchRestaurantMinimumCostValue(value: String) {
+        val text = resources?.getString(R.string.restaurant_details_money_text, value)
+
         swipeTo(viewId = R.id.restaurant_details_minimum_cost_container)
         matchTextAtIncludedView(
             containerId = R.id.restaurant_details_minimum_cost_container,
