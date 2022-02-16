@@ -64,7 +64,7 @@ internal class RestaurantListFragmentTest {
     @Test
     fun whenSelectNewestFilterOption_ShouldDisplayNewestSortedList() = restaurantListState {
         //When
-        clickOnFilterOptionBy(RestaurantFilterOption.NEWEST.value)
+        clickOnFilterOptionBy(RestaurantFilterOption.NEWEST.position)
 
         //Then
         matchFilterOptionSelected(R.string.restaurant_sorting_option_newest)
@@ -76,7 +76,7 @@ internal class RestaurantListFragmentTest {
     fun whenSelectRatingAverageFilterOption_ShouldDisplayRatingAverageSortedList() =
         restaurantListState {
             //When
-            clickOnFilterOptionBy(RestaurantFilterOption.RATING_AVERAGE.value)
+            clickOnFilterOptionBy(RestaurantFilterOption.RATING_AVERAGE.position)
 
             //Then
             matchFilterOptionSelected(R.string.restaurant_sorting_option_rating_average)
@@ -87,7 +87,7 @@ internal class RestaurantListFragmentTest {
     @Test
     fun whenSelectDistanceFilterOption_ShouldDisplayDistanceSortedList() = restaurantListState {
         //When
-        clickOnFilterOptionBy(RestaurantFilterOption.DISTANCE.value)
+        clickOnFilterOptionBy(RestaurantFilterOption.DISTANCE.position)
 
         //Then
         matchFilterOptionSelected(R.string.restaurant_sorting_option_distance)
@@ -98,7 +98,7 @@ internal class RestaurantListFragmentTest {
     @Test
     fun whenSelectPopularityFilterOption_ShouldDisplayPopularitySortedList() = restaurantListState {
         //When
-        clickOnFilterOptionBy(RestaurantFilterOption.POPULARITY.value)
+        clickOnFilterOptionBy(RestaurantFilterOption.POPULARITY.position)
 
         //Then
         matchFilterOptionSelected(R.string.restaurant_sorting_option_popularity)
@@ -110,7 +110,7 @@ internal class RestaurantListFragmentTest {
     fun whenSelectAverageProductPriceFilterOption_ShouldDisplayAverageProductPriceSortedList() =
         restaurantListState {
             //When
-            clickOnFilterOptionBy(RestaurantFilterOption.AVERAGE_PRODUCT_PRICE.value)
+            clickOnFilterOptionBy(RestaurantFilterOption.AVERAGE_PRODUCT_PRICE.position)
 
             //Then
             matchFilterOptionSelected(R.string.restaurant_sorting_option_average_product_price)
@@ -124,7 +124,7 @@ internal class RestaurantListFragmentTest {
     fun whenSelectDeliveryCostsFilterOption_ShouldDisplayDeliveryCostsSortedList() =
         restaurantListState {
             //When
-            clickOnFilterOptionBy(RestaurantFilterOption.DELIVERY_COSTS.value)
+            clickOnFilterOptionBy(RestaurantFilterOption.DELIVERY_COSTS.position)
 
             //Then
             matchFilterOptionSelected(R.string.restaurant_sorting_option_delivery_cost)
@@ -135,7 +135,7 @@ internal class RestaurantListFragmentTest {
     @Test
     fun whenSelectMinCostFilterOption_ShouldDisplayMinCostSortedList() = restaurantListState {
         //When
-        clickOnFilterOptionBy(RestaurantFilterOption.MIN_COST.value)
+        clickOnFilterOptionBy(RestaurantFilterOption.MIN_COST.position)
 
         //Then
         matchFilterOptionSelected(R.string.restaurant_sorting_option_minimum_cost)

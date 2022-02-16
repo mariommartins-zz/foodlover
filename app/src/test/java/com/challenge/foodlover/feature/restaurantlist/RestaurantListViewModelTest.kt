@@ -64,27 +64,27 @@ internal class RestaurantListViewModelTest {
     @Test
     fun `when onFilterOptionSelected is called With filterValue param Should call getSortedRestaurantList`() {
         //Given
-        val filterValue = 1
+        val filterPosition = 1
 
         //When
-        viewModel.onFilterOptionSelected(filterValue)
+        viewModel.onFilterOptionSelected(filterPosition)
 
         //Then
-        coVerify { getSortedRestaurantList(RestaurantFilterOption.getByValue(filterValue)!!) }
+        coVerify { getSortedRestaurantList(RestaurantFilterOption.getBy(filterPosition)!!) }
     }
 
     @Test
     fun `when onFilterOptionSelected is called twice With the same filterValue param Should call getSortedRestaurantList only once`() {
         //Given
-        val filterValue = 1
+        val filterPosition = 1
 
         //When
-        viewModel.onFilterOptionSelected(filterValue)
-        viewModel.onFilterOptionSelected(filterValue)
+        viewModel.onFilterOptionSelected(filterPosition)
+        viewModel.onFilterOptionSelected(filterPosition)
 
         //Then
         coVerify(exactly = 1) {
-            getSortedRestaurantList(RestaurantFilterOption.getByValue(filterValue)!!)
+            getSortedRestaurantList(RestaurantFilterOption.getBy(filterPosition)!!)
         }
     }
 }

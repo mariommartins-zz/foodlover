@@ -23,8 +23,8 @@ class RestaurantListViewModel(
 
     override fun onSwipeToRefresh() = updateRestaurantList()
 
-    override fun onFilterOptionSelected(filterValue: Int) {
-        RestaurantFilterOption.getByValue(filterValue)?.let {
+    override fun onFilterOptionSelected(filterPosition: Int) {
+        RestaurantFilterOption.getBy(filterPosition)?.let {
             if (currentFilterOption != it) {
                 currentFilterOption = it
                 updateRestaurantList()

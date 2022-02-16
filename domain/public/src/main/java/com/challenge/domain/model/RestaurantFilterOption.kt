@@ -1,6 +1,6 @@
 package com.challenge.domain.model
 
-enum class RestaurantFilterOption(val value: Int) {
+enum class RestaurantFilterOption(val position: Int) {
     BEST_MATCH(0),
     NEWEST(1),
     RATING_AVERAGE(2),
@@ -12,6 +12,6 @@ enum class RestaurantFilterOption(val value: Int) {
 
     companion object {
 
-        fun getByValue(filterValue: Int) = values().find { it.value == filterValue }
+        fun getBy(filterPosition: Int) = values().find { it.position == filterPosition }
     }
 }

@@ -4,5 +4,5 @@ import com.challenge.common.android.presentationarch.ViewAction
 
 interface IRestaurantListViewAction : ViewAction {
     fun onSwipeToRefresh()
-    fun onFilterOptionSelected(filterValue: Int)
+    fun onFilterOptionSelected(filterPosition: Int)
 }
