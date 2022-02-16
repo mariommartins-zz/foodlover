@@ -30,6 +30,7 @@ This is a single-activity app that reads a restaurant list from a Json file and 
 - The restaurant structure in the provided restaurant list does not have a primary key to use as id or to combine in order to create one, so the name was used for this purpose.
 - If the Restaurant response status, does not corresponds to any of the mapped domain status then the instance will be removed in the mapping process.
 - The json list was treated as a mocked api result, and the app architecture was built taking it into account.
+- When the user taps to favorite an Restaurant the list does not automatically sorts to improve experience, avoiding problems with taps by mistake. To update the list the user does a **swipe to refresh**
 - The filtered list has been sorted in different ways depending on the selected filter option, as follows:
     - BEST_MATCH -> Descending
     - NEWEST -> Ascending
