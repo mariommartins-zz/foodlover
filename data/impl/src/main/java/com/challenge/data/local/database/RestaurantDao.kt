@@ -1,4 +1,4 @@
-package com.challenge.data.local.dao
+package com.challenge.data.local.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

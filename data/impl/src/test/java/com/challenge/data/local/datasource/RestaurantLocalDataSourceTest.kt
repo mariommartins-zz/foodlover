@@ -3,7 +3,7 @@ package com.challenge.data.local.datasource
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.challenge.data.local.dao.RestaurantDao
+import com.challenge.data.local.database.RestaurantDao
 import com.challenge.data.local.entity.RestaurantEntity
 import com.challenge.data.local.mapper.MapRestaurantFromModelToEntityAlias
 import com.challenge.data.util.factory.RestaurantEntityFactory

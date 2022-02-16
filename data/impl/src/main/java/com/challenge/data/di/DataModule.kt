@@ -1,7 +1,6 @@
 package com.challenge.data.di
 
-import com.challenge.data.local.database.FoodLoverDatabase
-import com.challenge.data.local.database.FoodLoverDatabaseClientBuilder
+import com.challenge.data.local.database.FoodLoverDatabaseClient
 import com.challenge.data.local.datasource.IRestaurantLocalDataSource
 import com.challenge.data.local.datasource.RestaurantLocalDataSource
 import com.challenge.data.local.mapper.MapRestaurantFromModelToEntity
@@ -20,8 +19,8 @@ private val networkModule = module {
 }
 
 private val databaseModule = module {
-    single { FoodLoverDatabaseClientBuilder.build(context = androidContext()) }
-    single { get<FoodLoverDatabase>().restaurantDao() }
+    single { FoodLoverDatabaseClient.build(context = androidContext()) }
+    single { get<FoodLoverDatabaseClient>().restaurantDao() }
 }
 
 private val mapperModule = module {
