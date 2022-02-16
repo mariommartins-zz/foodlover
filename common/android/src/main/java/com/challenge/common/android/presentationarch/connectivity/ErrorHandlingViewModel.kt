@@ -8,10 +8,12 @@ import com.challenge.common.android.presentationarch.ViewState
 import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause
 import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause.ERROR
 import com.challenge.common.android.presentationarch.connectivity.model.ErrorCause.PARSING
+import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException
 import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException.IOFoodLoverException
 import com.challenge.common.android.presentationarch.connectivity.model.FoodLoverException.JsonParsingFoodLoverException
 import com.challenge.common.android.util.SingleLiveEvent
 import com.challenge.kotlin.dispatchers.DispatcherMap
+import com.challenge.kotlin.extensions.exhaustive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -30,13 +32,19 @@ abstract class ErrorHandlingViewModel<out State : ViewState, out Action : ViewAc
         viewModelScope.launch(dispatcherMap.ui) {
             try {
                 withContext(dispatcherMap.io) { request.invoke() }
-            } catch (exception: JsonParsingFoodLoverException) {
-                onLoadException(PARSING, onError)
-            } catch (exception: IOFoodLoverException) {
-                onLoadException(ERROR, onError)
+            } catch (exception: FoodLoverException) {
+                handleFoodLoverException(onError, exception)
             }
         }
     }
+
+    private fun handleFoodLoverException(
+        onError: (ErrorCause) -> Unit = {},
+        exception: FoodLoverException
+    ) = when (exception) {
+        is JsonParsingFoodLoverException -> onLoadException(PARSING, onError)
+        is IOFoodLoverException -> onLoadException(ERROR, onError)
+    }.exhaustive
 
     private fun onLoadException(cause: ErrorCause, onError: (ErrorCause) -> Unit = {}) {
         _errorEvent.postValue(cause)
